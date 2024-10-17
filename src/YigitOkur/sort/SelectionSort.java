@@ -5,8 +5,6 @@ package YigitOkur.sort;
  * github.com/TurkishKEBAB
  */
 
-import org.jetbrains.annotations.NotNull;
-
 public class SelectionSort {
 
    public static void SortTarafındanSeçiliyoruzMetodu(int[] array) {
@@ -32,7 +30,7 @@ public class SelectionSort {
       }
    }
 
-   public static void printArray(int @NotNull [] array) {
+   public static void printArray(int [] array) {
       for (int i : array) {
          System.out.print(i + " ");
       }

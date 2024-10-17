@@ -12,14 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class SelectionSortTest {
 
    @Test
-   void saçmaTestler1() {
+   void saçmaTestler01() {
       int[] Arayayım = {};
       SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
       assertArrayEquals(new int[]{}, Arayayım);
    }
 
    @Test
-   void saçmaTestler2() {
+   void saçmaTestler02() {
       int[] Arayayım = {5};
       SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
       assertArrayEquals(new int[]{5}, Arayayım);
