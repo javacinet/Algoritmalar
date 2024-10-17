@@ -1,4 +1,4 @@
-package YigitOkur.list;
+package ogrenciler.YigitOkur.list;
 
 /*
  * @author of this code Yigit Okur (23Soft1040)

@@ -5,6 +5,7 @@ package YigitOkur.sort;
  * github.com/TurkishKEBAB
  */
 
+import ogrenciler.YigitOkur.sort.SelectionSort;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

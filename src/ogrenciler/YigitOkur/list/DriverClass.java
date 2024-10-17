@@ -1,4 +1,4 @@
-package YigitOkur.list;
+package ogrenciler.YigitOkur.list;
 
 import java.util.Random;
 

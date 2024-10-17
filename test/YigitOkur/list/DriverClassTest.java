@@ -5,6 +5,7 @@ package YigitOkur.list;
  */
 
 
+import ogrenciler.YigitOkur.list.ArayayımListe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package dogukanAydin.list;
+package ogrenciler.dogukanAydin.list;
 
 public class Arraylist {
 
