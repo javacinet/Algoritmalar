@@ -8,7 +8,7 @@ public class ArrayListTest {
 
     @Test
     public void addFirstTest() {
-        ArrayList list = new ArrayList();
+        IntArrayList list = new IntArrayList();
         list.addLast(10);
         list.addLast(20);
         list.addLast(30);
@@ -20,6 +20,11 @@ public class ArrayListTest {
         assertEquals(10, list.get(1));
         assertEquals(20, list.get(2));
         assertEquals(30, list.get(3));
+
+    }
+
+    @Test
+    public void agdkgsdgsakd() {
 
     }
 }

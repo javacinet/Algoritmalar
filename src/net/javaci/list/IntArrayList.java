@@ -1,6 +1,6 @@
 package net.javaci.list;
 
-public class ArrayList {
+public class IntArrayList {
 
     private final int INITIAL_CAPACITY = 16;
 
@@ -8,7 +8,7 @@ public class ArrayList {
 
     private int size = 0;
 
-    public ArrayList() {
+    public IntArrayList() {
         array = new int[INITIAL_CAPACITY];
     }
 
@@ -87,7 +87,7 @@ public class ArrayList {
     // O(n)
     public int removeFirst() {
         if (isEmpty()) {
-            throw new RuntimeException("ArrayList empty");
+            throw new RuntimeException("IntArrayList empty");
         }
 
         int retVal = array[0];
