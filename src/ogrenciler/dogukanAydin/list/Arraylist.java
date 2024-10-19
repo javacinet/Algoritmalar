@@ -13,11 +13,11 @@ public class Arraylist {
     }
 
     public void addLast(int e) {
-        largestarray() ;
+        largestArray() ;
         array[size++] = e;
     }
 
-    public void largestarray() {
+    public void largestArray() {
         if (size >= array.length) {
             int[] newArray = new int[array.length + 4];
             System.arraycopy(array, 0, newArray, 0, size);
@@ -45,7 +45,7 @@ public class Arraylist {
         return size;
     }
 
-    public void listeyigoster() {
+    public void listeyiGoster() {
         for (int i = 0; i < size; i++) {
             System.out.print(array[i] + " ");
         }
@@ -54,7 +54,7 @@ public class Arraylist {
 
     public void shiftRight(int position) {
         if (array.length <= size) {
-            largestarray();
+            largestArray();
         }
         for (int i = size; i >= position; i--) {
             array[i + 1] = array[i];

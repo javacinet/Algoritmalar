@@ -2,7 +2,7 @@ package net.javaci.list;
 
 public class ArrayListMain {
     public static void main(String[] args) {
-        IntArrayList list = new IntArrayList();
+        IntList list = new IntLinkedList();
 
         for (int i = 0; i < 100; i++) {
             list.addLast((int) (Math.random() * 1000));

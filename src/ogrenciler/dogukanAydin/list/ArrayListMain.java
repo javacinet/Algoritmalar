@@ -14,12 +14,12 @@ public class ArrayListMain {
 
         list.addLast(12);
 
-        list.listeyigoster();
+        list.listeyiGoster();
 
         list.shiftRight(4);
 
         System.out.println("a");
 
-        list.listeyigoster();
+        list.listeyiGoster();
     }
 }

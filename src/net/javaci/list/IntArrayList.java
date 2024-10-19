@@ -1,6 +1,6 @@
 package net.javaci.list;
 
-public class IntArrayList {
+public class IntArrayList implements IntList {
 
     private final int INITIAL_CAPACITY = 16;
 
@@ -13,12 +13,14 @@ public class IntArrayList {
     }
 
     // O(1)
+    @Override
     public void addLast(int e) {
         enlargeArray();
         array[size++] = e;
     }
 
     // O(1)
+    @Override
     public int get(int index) {
         if (index >= size) {
             throw new ArrayIndexOutOfBoundsException(index);
@@ -27,6 +29,7 @@ public class IntArrayList {
     }
 
     // O(n)
+    @Override
     public boolean contains(int e) {
         for (int i = 0; i < size; i++) {
             if (array[i] == e) {
@@ -37,6 +40,7 @@ public class IntArrayList {
     }
 
     // O(n)
+    @Override
     public void addFirst(int e) {
         enlargeArray();
         shiftRight();
@@ -56,7 +60,7 @@ public class IntArrayList {
 
     // O(1)
     private void enlargeArray() {
-        if (size >= array.length) {
+        if (size == array.length) {
             int[] newArray = new int[array.length * 2];
             System.arraycopy(array, 0, newArray, 0, array.length);
             array = newArray;
@@ -64,27 +68,32 @@ public class IntArrayList {
     }
 
     // O(1)
+    @Override
     public int size() {
         return size;
     }
 
     // O(1)
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
     // O(1)
+    @Override
     public void clean() {
         array = new int[INITIAL_CAPACITY];
         size = 0;
     }
 
     // O(1)
+    @Override
     public int removeLast() {
         return array[--size];
     }
 
     // O(n)
+    @Override
     public int removeFirst() {
         if (isEmpty()) {
             throw new RuntimeException("IntArrayList empty");
