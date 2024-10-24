@@ -15,8 +15,8 @@ public class DriverClass {
       System.out.println("Element at index 0: " + list.getLen(0));
       System.out.println("Element at index 1: " + list.getLen(1));
       System.out.println("Element at index 2: " + list.getLen(2));
-      System.out.println("List contains 20: " + list.varMıSende(20));
-      System.out.println("List contains 40: " + list.varMıSende(40));
+      System.out.println("MyList contains 20: " + list.varMıSende(20));
+      System.out.println("MyList contains 40: " + list.varMıSende(40));
 
       list.ilkineEkle(5);
       System.out.println("Element at index 0 after adding to the beginning: " + list.getLen(0));
@@ -37,6 +37,6 @@ public class DriverClass {
       }
       System.out.println("Size after adding 100 random elements: " + list.sizeınKadarKonusAbidin());
       System.out.println("Element at index 99: " + list.getLen(99));
-      System.out.println("List contains 500: " + list.varMıSende(500));
+      System.out.println("MyList contains 500: " + list.varMıSende(500));
    }
 }

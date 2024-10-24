@@ -1,5 +1,6 @@
 package net.javaci.list;
 
+import net.javaci.list.other.IntArrayList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

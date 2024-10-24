@@ -1,4 +1,4 @@
-package net.javaci.list;
+package net.javaci.list.other;
 
 interface IntList {
 

@@ -1,4 +1,4 @@
-package net.javaci.list;
+package net.javaci.list.other;
 
 public class ArrayListMain {
     public static void main(String[] args) {

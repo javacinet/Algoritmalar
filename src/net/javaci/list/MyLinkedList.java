@@ -1,20 +1,22 @@
 package net.javaci.list;
 
-public class IntLinkedList implements IntList {
+import net.javaci.list.other.EmptyListException;
 
-    private Node head;
+public class MyLinkedList<T> implements MyList<T> {
+
+    private Node<T> head;
 
     // O(n)
     @Override
-    public void addLast(int e) {
-        Node newNode = new Node(e);
+    public void addLast(T e) {
+        Node<T> newNode = new Node<T>(e);
 
         if (isEmpty()) {
             head = newNode;
             return;
         }
 
-        Node last = head;
+        Node<T> last = head;
         while (last.next != null) {
             last = last.next;
         }
@@ -23,12 +25,12 @@ public class IntLinkedList implements IntList {
 
     // O(n)
     @Override
-    public int get(int index) {
+    public T get(int index) {
         if (index < 0) {
             throw new IndexOutOfBoundsException(index);
         }
 
-        Node current = head;
+        Node<T> current = head;
         int i = 0;
         while (current != null) {
             if (i == index) {
@@ -44,14 +46,14 @@ public class IntLinkedList implements IntList {
 
     // O(n)
     @Override
-    public boolean contains(int e) {
+    public boolean contains(T e) {
         if (isEmpty()) {
             return  false;
         }
 
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
-            if (current.data == e) {
+            if (current.data.equals(e)) {
                 return true;
             }
             current = current.next;
@@ -62,8 +64,8 @@ public class IntLinkedList implements IntList {
 
     // O(1)
     @Override
-    public void addFirst(int e) {
-        Node newNode = new Node(e);
+    public void addFirst(T e) {
+        Node<T> newNode = new Node<>(e);
 
         newNode.next = head;
         head = newNode;
@@ -76,7 +78,7 @@ public class IntLinkedList implements IntList {
             return 0;
         }
 
-        Node current = head;
+        Node<T> current = head;
         int size = 0;
         while (current != null) {
             size++;
@@ -100,21 +102,21 @@ public class IntLinkedList implements IntList {
 
     // O(n)
     @Override
-    public int removeLast() {
+    public T removeLast() {
         if (isEmpty()) {
             throw new EmptyListException();
         }
 
         // last - 1 . next = null
-        Node pre = null;
-        Node current = head;
+        Node<T> pre = null;
+        Node<T> current = head;
 
         while (current != null) {
             pre = current;
             current = current.next;
         }
 
-        int retVal = pre.data;
+        T retVal = pre.data;
         pre.next = null;
 
         return retVal;
@@ -122,21 +124,21 @@ public class IntLinkedList implements IntList {
 
     // O(1)
     @Override
-    public int removeFirst() {
+    public T removeFirst() {
         if (isEmpty()) {
             throw new EmptyListException();
         }
 
-        int retVal = head.data;
+        T retVal = head.data;
         head = head.next;
         return retVal;
     }
 
-    private static class Node {
-        int data;
-        Node next;
+    private static class Node<T> {
+        T data;
+        Node<T> next;
 
-        public Node(int data) {
+        public Node(T data) {
             this.data = data;
         }
     }

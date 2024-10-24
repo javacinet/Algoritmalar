@@ -1,20 +1,15 @@
-package ogrenciler.dogukanAydin.list;
+package net.javaci.list.other;
 
 public class IntLinkedList implements IntList {
+
     private Node head;
 
-    private static class Node {
-        int data;
-        Node next;
-
-        public Node(int data) {this.data = data;}
-    }
-
+    // O(n)
     @Override
     public void addLast(int e) {
-        Node newNode = new Node(e) ;
+        Node newNode = new Node(e);
 
-        if (head == null) {
+        if (isEmpty()) {
             head = newNode;
             return;
         }
@@ -23,14 +18,16 @@ public class IntLinkedList implements IntList {
         while (last.next != null) {
             last = last.next;
         }
-        last.next =newNode;
+        last.next = newNode;
     }
 
+    // O(n)
     @Override
     public int get(int index) {
         if (index < 0) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(index);
         }
+
         Node current = head;
         int i = 0;
         while (current != null) {
@@ -41,13 +38,15 @@ public class IntLinkedList implements IntList {
             current = current.next;
         }
 
+
         throw new IndexOutOfBoundsException(index);
     }
 
+    // O(n)
     @Override
     public boolean contains(int e) {
-        if (head == null) {
-            return false;
+        if (isEmpty()) {
+            return  false;
         }
 
         Node current = head;
@@ -61,14 +60,16 @@ public class IntLinkedList implements IntList {
         return false;
     }
 
+    // O(1)
     @Override
     public void addFirst(int e) {
-        Node newNode = new Node(e) ;
+        Node newNode = new Node(e);
 
         newNode.next = head;
         head = newNode;
     }
 
+    // O(n)
     @Override
     public int size() {
         if (isEmpty()) {
@@ -81,44 +82,49 @@ public class IntLinkedList implements IntList {
             size++;
             current = current.next;
         }
+
         return size;
     }
 
+    // O(1)
     @Override
     public boolean isEmpty() {
         return head == null;
     }
 
+    // O(1) -  O(n)
     @Override
     public void clean() {
         head = null;
-        System.out.println("MyList cleaned");
     }
 
+    // O(n)
     @Override
     public int removeLast() {
         if (isEmpty()) {
-            throw new EmptyListException("MyList is empty");
+            throw new EmptyListException();
         }
 
-        Node prev = null;
+        // last - 1 . next = null
+        Node pre = null;
         Node current = head;
 
         while (current != null) {
-            prev = current;
+            pre = current;
             current = current.next;
         }
 
-        int retVal = prev.data;
-        prev.next = null;
+        int retVal = pre.data;
+        pre.next = null;
 
         return retVal;
     }
 
+    // O(1)
     @Override
     public int removeFirst() {
         if (isEmpty()) {
-            throw new EmptyListException("MyList is empty");
+            throw new EmptyListException();
         }
 
         int retVal = head.data;
@@ -126,5 +132,12 @@ public class IntLinkedList implements IntList {
         return retVal;
     }
 
+    private static class Node {
+        int data;
+        Node next;
 
+        public Node(int data) {
+            this.data = data;
+        }
+    }
 }

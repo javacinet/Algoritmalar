@@ -1,27 +1,32 @@
 package net.javaci.list;
 
-public class IntArrayList implements IntList {
+public class MyArrayList<T> implements MyList<T> {
 
-    private final int INITIAL_CAPACITY = 16;
+    private static final int INITIAL_CAPACITY = 16;
 
-    private int[] array;
+    private T[] array;
 
     private int size = 0;
 
-    public IntArrayList() {
-        array = new int[INITIAL_CAPACITY];
+    public MyArrayList() {
+        init();
+    }
+
+    private void init() {
+        array = (T[]) new Object[INITIAL_CAPACITY];
+        size = 0;
     }
 
     // O(1)
     @Override
-    public void addLast(int e) {
+    public void addLast(T e) {
         enlargeArray();
         array[size++] = e;
     }
 
     // O(1)
     @Override
-    public int get(int index) {
+    public T get(int index) {
         if (index >= size) {
             throw new ArrayIndexOutOfBoundsException(index);
         }
@@ -30,9 +35,9 @@ public class IntArrayList implements IntList {
 
     // O(n)
     @Override
-    public boolean contains(int e) {
+    public boolean contains(T e) {
         for (int i = 0; i < size; i++) {
-            if (array[i] == e) {
+            if (array[i].equals(e)) {
                 return true;
             }
         }
@@ -41,7 +46,7 @@ public class IntArrayList implements IntList {
 
     // O(n)
     @Override
-    public void addFirst(int e) {
+    public void addFirst(T e) {
         enlargeArray();
         shiftRight();
         array[0] = e;
@@ -61,7 +66,7 @@ public class IntArrayList implements IntList {
     // O(1)
     private void enlargeArray() {
         if (size == array.length) {
-            int[] newArray = new int[array.length * 2];
+            T[] newArray = (T[]) new Object[array.length * 2];
             System.arraycopy(array, 0, newArray, 0, array.length);
             array = newArray;
         }
@@ -82,24 +87,23 @@ public class IntArrayList implements IntList {
     // O(1)
     @Override
     public void clean() {
-        array = new int[INITIAL_CAPACITY];
-        size = 0;
+        init();
     }
 
     // O(1)
     @Override
-    public int removeLast() {
+    public T removeLast() {
         return array[--size];
     }
 
     // O(n)
     @Override
-    public int removeFirst() {
+    public T removeFirst() {
         if (isEmpty()) {
             throw new RuntimeException("IntArrayList empty");
         }
 
-        int retVal = array[0];
+        T retVal = array[0];
         for (int i = 0; i < size - 1; i++) {
             array[i] = array[i + 1];
         }
