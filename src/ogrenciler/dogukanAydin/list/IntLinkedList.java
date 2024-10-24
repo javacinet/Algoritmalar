@@ -1,6 +1,6 @@
 package ogrenciler.dogukanAydin.list;
 
-public class InkLinkedList implements IntList {
+public class IntLinkedList implements IntList {
     private Node head;
 
     private static class Node {
