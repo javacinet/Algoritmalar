@@ -1,4 +1,4 @@
-package ogrenciler.ReyhanSenaCimen.ArrayList;
+package ogrenciler.ReyhanSenaCimen;
 
 import java.util.Scanner;
 
