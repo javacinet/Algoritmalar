@@ -101,15 +101,21 @@ public class IntLinkedList implements IntList {
             throw new EmptyListException("MyList is empty");
         }
 
+        if (head.next == null) {
+            int retVal = head.data;
+            head = null;
+            return retVal;
+        }
+
         Node prev = null;
         Node current = head;
 
-        while (current != null) {
+        while (current.next != null) {
             prev = current;
             current = current.next;
         }
 
-        int retVal = prev.data;
+        int retVal = current.data;
         prev.next = null;
 
         return retVal;
