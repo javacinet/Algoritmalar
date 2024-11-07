@@ -1,5 +1,7 @@
 package net.javaci.list.other;
 
+import net.javaci.list.exception.EmptyListException;
+
 public class IntLinkedList implements IntList {
 
     private Node head;

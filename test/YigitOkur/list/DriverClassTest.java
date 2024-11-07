@@ -5,7 +5,7 @@ package YigitOkur.list;
  */
 
 
-import ogrenciler.YigitOkur.list.ArayayımListe;
+import ogrenciler.YigitOkur.list.ArayayimListe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,15 +13,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class DriverClassTest {
 
-   private ArayayımListe list;
+   private ArayayimListe list;
 
    @BeforeEach
    public void setup() {
-      list = new ArayayımListe();
+      list = new ArayayimListe();
    }
 
    @Test
-   public void testsonunaEkle() {
+   public void testSonunaEkle() {
       list.sonunaEkle(10);
       assertEquals(1, list.sizeınKadarKonusAbidin());
       assertEquals(10, list.getLen(0));
@@ -37,7 +37,7 @@ public class DriverClassTest {
    }
 
    @Test
-   public void testvarMıSendeTrue() {
+   public void testVarMiSendeTrue() {
       list.sonunaEkle(50);
       assertTrue(list.varMıSende(50));
    }
@@ -74,7 +74,7 @@ public class DriverClassTest {
    }
 
    @Test
-   public void testEmptyListsizeınKadarKonusAbidin() {
+   public void testEmptyListsizeinKadarKonusAbidin() {
       assertEquals(0, list.sizeınKadarKonusAbidin());
    }
 

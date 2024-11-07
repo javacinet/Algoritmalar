@@ -1,15 +1,24 @@
 package net.javaci.list;
 
-import net.javaci.list.other.EmptyListException;
+import net.javaci.list.exception.EmptyListException;
 
 public class MyLinkedList<T> implements MyList<T> {
 
     private Node<T> head;
 
+    // O(1)
+    @Override
+    public void addFirst(T e) {
+        Node<T> newNode = new Node<>(e);
+
+        newNode.next = head;
+        head = newNode;
+    }
+
     // O(n)
     @Override
     public void addLast(T e) {
-        Node<T> newNode = new Node<T>(e);
+        Node<T> newNode = new Node<>(e);
 
         if (isEmpty()) {
             head = newNode;
@@ -21,6 +30,44 @@ public class MyLinkedList<T> implements MyList<T> {
             last = last.next;
         }
         last.next = newNode;
+    }
+
+    // O(1)
+    @Override
+    public T removeFirst() {
+        if (isEmpty()) {
+            throw new EmptyListException();
+        }
+
+        T retVal = head.data;
+        head = head.next;
+        return retVal;
+    }
+
+    // O(n)
+    @Override
+    public T removeLast() {
+        if (isEmpty()) {
+            throw new EmptyListException();
+        }
+
+        // last - 1 . next = null
+        Node<T> pre = null;
+        Node<T> current = head;
+
+        while (current.next != null) {
+            pre = current;
+            current = current.next;
+        }
+
+        T retVal = current.data;
+        if (pre == null) {
+            head = null;
+        } else {
+            pre.next = null;
+        }
+
+        return retVal;
     }
 
     // O(n)
@@ -48,7 +95,7 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override
     public boolean contains(T e) {
         if (isEmpty()) {
-            return  false;
+            return false;
         }
 
         Node<T> current = head;
@@ -60,15 +107,6 @@ public class MyLinkedList<T> implements MyList<T> {
         }
 
         return false;
-    }
-
-    // O(1)
-    @Override
-    public void addFirst(T e) {
-        Node<T> newNode = new Node<>(e);
-
-        newNode.next = head;
-        head = newNode;
     }
 
     // O(n)
@@ -100,39 +138,6 @@ public class MyLinkedList<T> implements MyList<T> {
         head = null;
     }
 
-    // O(n)
-    @Override
-    public T removeLast() {
-        if (isEmpty()) {
-            throw new EmptyListException();
-        }
-
-        // last - 1 . next = null
-        Node<T> pre = null;
-        Node<T> current = head;
-
-        while (current != null) {
-            pre = current;
-            current = current.next;
-        }
-
-        T retVal = pre.data;
-        pre.next = null;
-
-        return retVal;
-    }
-
-    // O(1)
-    @Override
-    public T removeFirst() {
-        if (isEmpty()) {
-            throw new EmptyListException();
-        }
-
-        T retVal = head.data;
-        head = head.next;
-        return retVal;
-    }
 
     private static class Node<T> {
         T data;

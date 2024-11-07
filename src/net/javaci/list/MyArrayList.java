@@ -1,5 +1,7 @@
 package net.javaci.list;
 
+import net.javaci.list.exception.EmptyListException;
+
 public class MyArrayList<T> implements MyList<T> {
 
     private static final int INITIAL_CAPACITY = 16;
@@ -93,6 +95,10 @@ public class MyArrayList<T> implements MyList<T> {
     // O(1)
     @Override
     public T removeLast() {
+        if (isEmpty()) {
+            throw new RuntimeException("IntArrayList empty");
+        }
+
         return array[--size];
     }
 
@@ -100,7 +106,7 @@ public class MyArrayList<T> implements MyList<T> {
     @Override
     public T removeFirst() {
         if (isEmpty()) {
-            throw new RuntimeException("IntArrayList empty");
+            throw new EmptyListException();
         }
 
         T retVal = array[0];

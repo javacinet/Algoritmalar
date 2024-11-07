@@ -6,7 +6,7 @@ public class DriverClass {
 
    public static void main(String[] args) {
       Random rd = new Random();
-      ArayayımListe list = new ArayayımListe();
+      ArayayimListe list = new ArayayimListe();
 
       list.sonunaEkle(10);
       list.sonunaEkle(20);

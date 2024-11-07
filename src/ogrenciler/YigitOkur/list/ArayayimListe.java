@@ -5,13 +5,13 @@ package ogrenciler.YigitOkur.list;
  * github.com/TurkishKEBAB
  */
 
-public class ArayayımListe {
+public class ArayayimListe {
 
    private final int TOPLAM_CAPIN_BU_KADAR_ABIDIN = 16;
    private int[] arayayım;
    private int sizeınKadarKonusAbidin = 0;
 
-   public ArayayımListe() {
+   public ArayayimListe() {
       arayayım = new int[TOPLAM_CAPIN_BU_KADAR_ABIDIN];
    }
 

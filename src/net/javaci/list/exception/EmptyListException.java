@@ -1,4 +1,4 @@
-package net.javaci.list.other;
+package net.javaci.list.exception;
 
 public class EmptyListException extends RuntimeException {
 }
