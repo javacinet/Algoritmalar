@@ -10,35 +10,30 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override
     public void addFirst(T e) {
         Node<T> newNode = new Node<>(e);
-        Node<T> current = head;
-        current.prev = newNode;
-        head = newNode;
-        newNode.next = current;
-        size++;
-        if (size == 1) {
-            tail = head;
-            tail.prev = null;
-            head.next = null;
 
+        if (isEmpty()) {
+            head = newNode;
+            tail = newNode;
+
+        } else {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
         }
-        if (size == 2) {
-            tail = head.next;
-            tail.prev = head;
-        }
+        size++;
+
     }
 
     @Override
     public void addLast(T e) {
         Node<T> newNode = new Node<>(e);
-        if (size == 0) {
+        if (isEmpty()) {
             head = newNode;
             tail = head;
-            size++;
             return;
         }
-        Node<T> current = tail;
-        newNode.prev = current;
-        current.next = newNode;
+        newNode.prev = tail;
+        tail.next = newNode;
         tail = newNode;
         size++;
     }
