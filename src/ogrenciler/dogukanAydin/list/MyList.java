@@ -1,9 +1,22 @@
 package ogrenciler.dogukanAydin.list;
 
-import net.javaci.list.Collection;
+import ogrenciler.dogukanAydin.list.Collection;
 
-public interface MyList <T> extends Collection {
+public interface MyList<T> extends Collection {
 
+    T get(int index);
+
+    boolean contains(T e);
+
+    void addLast(T e);
+
+    void addFirst(T e);
+
+    void clean();
+
+    T removeLast() ;
+
+    T removeFirst();
 
 
 }

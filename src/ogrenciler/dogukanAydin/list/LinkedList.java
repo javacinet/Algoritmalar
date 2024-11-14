@@ -1,25 +1,25 @@
 package ogrenciler.dogukanAydin.list;
 
-public class IntLinkedList implements IntList {
-    private Node head;
+public class LinkedList<T> implements MyList<T> {
+    private Node<T> head;
 
-    private static class Node {
-        int data;
-        Node next;
+    private static class Node<T> {
+        T data;
+        Node<T> next;
 
-        public Node(int data) {this.data = data;}
+        public Node(T data) {this.data = data;}
     }
 
     @Override
-    public void addLast(int e) {
-        Node newNode = new Node(e) ;
+    public void addLast(T e) {
+        Node<T> newNode = new Node<>(e) ;
 
         if (head == null) {
             head = newNode;
             return;
         }
 
-        Node last = head;
+        Node<T> last = head;
         while (last.next != null) {
             last = last.next;
         }
@@ -27,11 +27,11 @@ public class IntLinkedList implements IntList {
     }
 
     @Override
-    public int get(int index) {
+    public T get(int index) {
         if (index < 0) {
             throw new IndexOutOfBoundsException();
         }
-        Node current = head;
+        Node<T> current = head;
         int i = 0;
         while (current != null) {
             if (i == index) {
@@ -45,12 +45,12 @@ public class IntLinkedList implements IntList {
     }
 
     @Override
-    public boolean contains(int e) {
+    public boolean contains(T e) {
         if (head == null) {
             return false;
         }
 
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
             if (current.data == e) {
                 return true;
@@ -62,9 +62,8 @@ public class IntLinkedList implements IntList {
     }
 
     @Override
-    public void addFirst(int e) {
-        Node newNode = new Node(e) ;
-
+    public void addFirst(T e) {
+        Node<T> newNode = new Node<>(e) ;
         newNode.next = head;
         head = newNode;
     }
@@ -75,7 +74,7 @@ public class IntLinkedList implements IntList {
             return 0;
         }
 
-        Node current = head;
+        Node<T> current = head;
         int size = 0;
         while (current != null) {
             size++;
@@ -96,38 +95,38 @@ public class IntLinkedList implements IntList {
     }
 
     @Override
-    public int removeLast() {
+    public T removeLast() {
         if (isEmpty()) {
             throw new EmptyListException("MyList is empty");
         }
 
         if (head.next == null) {
-            int retVal = head.data;
+            T retVal = head.data;
             head = null;
             return retVal;
         }
 
-        Node prev = null;
-        Node current = head;
+        Node<T> prev = null;
+        Node<T> current = head;
 
         while (current.next != null) {
             prev = current;
             current = current.next;
         }
 
-        int retVal = current.data;
+        T retVal = current.data;
         prev.next = null;
 
         return retVal;
     }
 
     @Override
-    public int removeFirst() {
+    public T removeFirst() {
         if (isEmpty()) {
             throw new EmptyListException("MyList is empty");
         }
 
-        int retVal = head.data;
+        T retVal = head.data;
         head = head.next;
         return retVal;
     }
