@@ -1,0 +1,102 @@
+https://www.bigocheatsheet.com/
+
+Big-O Cheat Sheet'teki \( O(n!) \), \( O(2^n) \), ve diğer yüksek karmaşıklık sınıflarını da dahil ederek
+genel bir özet yapalım. Bu tür yüksek karmaşıklıklar genellikle **kötü performanslı** algoritmalarda ortaya çıkar
+ve genellikle optimizasyon gerektirir. Şimdi bu detayları listeleyelim:
+
+---
+
+## **Zaman Karmaşıklığı Sınıfları**
+### **1. \( O(1) \): Sabit Zaman**
+- **Tanım:** Girdinin boyutundan bağımsızdır.
+- **Örnek:** Diziye indeksle erişim, sabit işlemler.
+- **Algoritmalar:** Hash tablodan değer okuma.
+
+---
+
+### **2. \( O(\log n) \): Logaritmik Zaman**
+- **Tanım:** Problem her adımda girdinin boyutunu sabit bir oranla azaltır.
+- **Örnek:**
+  - Binary Search (ikili arama)
+  - Dengeli ağaçlardaki arama (örneğin, AVL veya Red-Black Tree)
+- **Algoritmalar:** Divide and Conquer (Böl ve Fethet).
+
+---
+
+### **3. \( O(n) \): Doğrusal Zaman**
+- **Tanım:** Girdinin her elemanını bir kez işlemek gerekir.
+- **Örnek:**
+  - Bir diziyi dolaşmak.
+  - Bir dizide en büyük elemanı bulmak.
+- **Algoritmalar:** Linear Search (Doğrusal Arama).
+
+---
+
+### **4. \( O(n \log n) \): Logaritmik Çarpanlı Doğrusal Zaman**
+- **Tanım:** Girdi her adımda bölünürken, her bölüme doğrusal işlem uygulanır.
+- **Örnek:**
+  - Merge Sort
+  - Quick Sort (ortalama durumda)
+  - Heap Sort
+- **Algoritmalar:** Böl ve fethet tabanlı sıralama algoritmaları.
+
+---
+
+### **5. \( O(n^2) \): Karesel Zaman**
+- **Tanım:** İç içe döngülerde ortaya çıkar; girdinin tüm elemanları, diğer girdilerle karşılaştırılır.
+- **Örnek:**
+  - İki döngüyle çalışan algoritmalar.
+  - Selection Sort, Bubble Sort, Insertion Sort.
+- **Algoritmalar:** Kötü sıralama algoritmaları (Bubble Sort).
+
+---
+
+### **6. \( O(n^3), O(n^k) \): Polinomsal Zaman**
+- **Tanım:** İç içe birden fazla döngü.
+- **Örnek:**
+  - Üç döngüyle çalışan algoritmalar.
+  - Floyd-Warshall Algoritması (kısa yol bulma).
+- **Algoritmalar:** Dinamik programlama bazlı bazı algoritmalar.
+
+---
+
+### **7. \( O(2^n) \): Üstel Zaman**
+- **Tanım:** Girdinin her elemanı için iki olasılık veya seçim yapılır.
+- **Örnek:**
+  - Fibonacci sayıları için rekürsif algoritma.
+  - Gezgin Satıcı Problemi (Brute Force).
+  - Alt küme oluşturma (Subsets generation).
+- **Algoritmalar:** Kombinasyonel algoritmalar, brute force tabanlı çözüm.
+
+---
+
+### **8. \( O(n!) \): Faktöriyel Zaman**
+- **Tanım:** Tüm olası permütasyonlar veya düzenlemeler hesaplanır.
+- **Örnek:**
+  - Gezgin Satıcı Problemi (TSP) — Permütasyon tabanlı brute force çözümü.
+  - Permütasyon üretme.
+  - NP-tam problemler (örneğin, Satış Elemanı Problemi için brute force).
+- **Algoritmalar:** Brute force tabanlı optimizasyon veya permütasyon algoritmaları.
+
+---
+
+## **Zaman Karmaşıklığına Göre Sıralama**
+| Karmaşıklık   | Performans                          | Örnek Algoritmalar                                  |
+|----------------|-------------------------------------|----------------------------------------------------|
+| \( O(1) \)     | Çok hızlı                           | Hashing, sabit işlemler.                           |
+| \( O(\log n) \)| Çok hızlı                           | Binary Search, Dengeli Ağaç Araması.               |
+| \( O(n) \)     | Orta hız                           | Linear Search, bir listeyi dolaşma.               |
+| \( O(n \log n) \)| Makul                            | Merge Sort, Quick Sort (ortalama durumda).         |
+| \( O(n^2) \)   | Yavaş                               | Bubble Sort, Selection Sort.                       |
+| \( O(n^3) \)   | Çok yavaş                          | Floyd-Warshall Algoritması.                        |
+| \( O(2^n) \)   | Çok yavaş (uygun değil)            | Gezgin Satıcı Problemi, Fibonacci rekürsif.        |
+| \( O(n!) \)    | Aşırı yavaş (genelde uygulanamaz)  | TSP brute force, permütasyon üretimi.             |
+
+---
+
+## **Sonuç**
+- **Alt seviye karmaşıklıklar (\(O(1), O(\log n), O(n)\))**: Çoğunlukla verimli algoritmalar.
+- **Orta seviye karmaşıklıklar (\(O(n \log n)\))**: Sıralama algoritmaları gibi optimize edilmiş çözümler.
+- **Yüksek karmaşıklıklar (\(O(n^2), O(2^n), O(n!)\))**: Genellikle brute force veya optimize edilmemiş algoritmalar.
+
+Bu genel özetle, karmaşıklığı analiz etmek ve belirli sınıflara ayırmak kolaylaşır. Eğer bir algoritma \(O(n!)\) gibi bir karmaşıklığa sahipse, bu genelde **optimize edilmesi gerektiği** anlamına gelir.
