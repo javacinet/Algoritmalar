@@ -1,0 +1,22 @@
+Generic Türler ve Tip Güvenliği
+Java, tip güvenliği sağlamak için Generics kullanır.
+Generics, bir sınıfın veya metodun hangi türle çalışacağını derleme zamanında belirlememizi sağlar.
+ Örneğin:
+List<String> list = new ArrayList<>();
+list.add("Merhaba");
+Bu, yalnızca String türünden elemanlar eklenebileceğini garanti eder.
+Derleme sırasında String dışında bir tür eklemeye çalışırsanız, derleyici hata verir.
+
+Unchecked Cast Warning Neden Olur?
+Java’da Generic array (Generic bir dizi) doğrudan oluşturulamaz, çünkü diziler Java’da tip erozyonuna (type erasure) uğrar. Örneğin:
+
+java
+Copy code
+T[] array = new T[10]; // DERLEME HATASI
+Bu tür bir yapı doğrudan oluşturulamaz. Ancak bir çözüm olarak, bir Object dizisi oluşturup bunu generic bir türe cast (dönüştürme) edebiliriz:
+
+T[] array = (T[]) new Object[10];
+Bu noktada derleyici şöyle bir uyarı verebilir:
+
+Unchecked cast: 'Object[]' to 'T[]'.
+
