@@ -20,3 +20,150 @@ Bu noktada derleyici şöyle bir uyarı verebilir:
 
 Unchecked cast: 'Object[]' to 'T[]'.
 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Big \(O\), \( \Omega \), ve \( \Theta \) notasyonları algoritmaların performansını tanımlamak için kullanılır, ancak farklı yönlerden bakarlar. İşte bu kavramların anlamı ve kasıtları:
+
+---
+
+## **1. Big \(O\) (Upper Bound - Üst Sınır)**
+- **Kapsam:** Bir algoritmanın **en kötü durumda** çalışma süresini tanımlar.
+- **Kapsamlı Açıklama:**
+  - Big \(O\), bir algoritmanın çalışma süresinin **en kötü senaryoda nasıl büyüdüğünü** analiz eder.
+  - Algoritma, en kötü senaryoda \(O(f(n))\) zaman alıyorsa, bu algoritmanın çalışma süresi asla \(f(n)\)'den daha hızlı büyümez.
+- **Kullanım:** Algoritmanın ne kadar yavaşlayabileceğini anlamak için kullanılır.
+
+### **Örnek:**
+Bir dizi sıralama algoritmasını düşünelim (örneğin, Bubble Sort).
+- En kötü durumda tüm elemanlar ters sıralıdır ve bu durumda Bubble Sort \(O(n^2)\) karmaşıklığına sahiptir.
+- **Yorum:** En kötü durumda algoritmanın performansı \(n^2\) büyüklüğünde bir zaman alacaktır.
+
+---
+
+## **2. \( \Omega \) (Lower Bound - Alt Sınır)**
+- **Kapsam:** Bir algoritmanın **en iyi durumda** çalışma süresini tanımlar.
+- **Kapsamlı Açıklama:**
+  - \( \Omega(f(n)) \), algoritmanın **ne kadar hızlı olabileceğini** ifade eder.
+  - Bu, algoritmanın çalışma süresinin **en iyi durumda \(f(n)\)'den daha az olamayacağını** garanti eder.
+- **Kullanım:** Algoritmanın potansiyel olarak ne kadar verimli olabileceğini göstermek için kullanılır.
+
+### **Örnek:**
+Binary Search algoritmasını düşünelim.
+- En iyi durumda, aradığımız eleman tam ortadadır ve algoritma sadece 1 karşılaştırma yapar: \( \Omega(1) \).
+- **Yorum:** En iyi durumda algoritma sabit zamanda tamamlanır.
+
+---
+
+## **3. \( \Theta \) (Tight Bound - Sıkı Sınır)**
+- **Kapsam:** Bir algoritmanın çalışma süresini hem **en iyi durumda** hem de **en kötü durumda** kapsar.
+- **Kapsamlı Açıklama:**
+  - \( \Theta(f(n)) \), algoritmanın çalışma süresinin hem üst hem de alt sınırını ifade eder.
+  - Bu, algoritmanın gerçek çalışma süresinin büyüme oranının \(f(n)\)'e yakın olduğunu gösterir.
+- **Kullanım:** Algoritmanın performansını tam olarak tanımlamak için kullanılır.
+
+### **Örnek:**
+Merge Sort algoritmasını düşünelim.
+- Hem en iyi hem de en kötü durumda \( \Theta(n \log n) \) karmaşıklığına sahiptir.
+- **Yorum:** Merge Sort'un çalışma süresi, \(n \log n\) büyüklüğünde büyür.
+
+---
+
+## **Kavramların Farklılıkları**
+
+| Notasyon  | Kapsam        | Kullanım Amacı                                      |
+|-----------|---------------|----------------------------------------------------|
+| **Big \(O\)** | Üst sınır     | Algoritmanın ne kadar yavaşlayabileceğini ölçmek.  |
+| \( \Omega \)   | Alt sınır     | Algoritmanın en iyi durumda ne kadar hızlı olabileceğini göstermek. |
+| \( \Theta \)   | Sıkı sınır    | Algoritmanın gerçek çalışma süresini tam olarak tanımlamak. |
+
+---
+
+## **Birlikte Kullanım Örneği**
+Diyelim ki bir algoritmamız var ve çalışma süresi farklı durumlarda şu şekilde:
+- En iyi durumda: \( \Omega(n) \)
+- En kötü durumda: \( O(n^2) \)
+- Ortalama durumda: \( \Theta(n \log n) \)
+
+Bu durumda şunları söyleyebiliriz:
+1. Algoritma **asla \(n\)'den daha hızlı olamaz** (\( \Omega(n) \)).
+2. Algoritma **en kötü senaryoda \(n^2\)'den daha fazla zaman almaz** (\( O(n^2) \)).
+3. Algoritmanın **ortalama performansı \(n \log n\)** civarındadır (\( \Theta(n \log n) \)).
+
+---
+
+## **Sonuç**
+- **Big \(O\)**, **üst sınırdır** ve algoritmanın ne kadar kötü çalışabileceğini gösterir.
+- **\( \Omega \)**, **alt sınırdır** ve algoritmanın ne kadar hızlı olabileceğini gösterir.
+- **\( \Theta \)**, algoritmanın çalışma süresinin **tam bir tanımıdır**. Algoritma tam olarak bu hızda çalışır.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+ // Başlat: Circular Array sınıfı başlatılır ve değişkenler tanımlanır.
+ // Tanımlanan değişkenler:
+ // capacity: Dizinin kapasitesi
+ // head: Başlangıç indeksi
+ // tail: Son indeks
+ // size: Dizi içindeki eleman sayısı
+ // array: Diziyi tutan ana yapı
+
+ // 1. addFirst(T e)
+ // Kontrol: Dizi dolu mu? (size == capacity)
+ //    - Evet: resize() çağrılır.
+ //    - Hayır: Devam edilir.
+ // head güncellenir: head = (head - 1 + capacity) % capacity
+ // Eleman eklenir: array[head] = e
+ // size artırılır: size++
+
+ // 2. addLast(T e)
+ // Kontrol: Dizi dolu mu? (size == capacity)
+ //    - Evet: resize() çağrılır.
+ //    - Hayır: Devam edilir.
+ // Eleman eklenir: array[tail] = e
+ // tail güncellenir: tail = (tail + 1) % capacity
+ // size artırılır: size++
+
+ // 3. removeFirst()
+ // Kontrol: Liste boş mu? (size == 0)
+ //    - Evet: EmptyListException fırlatılır.
+ //    - Hayır: Devam edilir.
+ // Eleman alınır: T item = array[head]
+ // head güncellenir: head = (head + 1) % capacity
+ // size azaltılır: size--
+ // Alınan eleman döndürülür: return item
+
+ // 4. removeLast()
+ // Kontrol: Liste boş mu? (size == 0)
+ //    - Evet: EmptyListException fırlatılır.
+ //    - Hayır: Devam edilir.
+ // tail güncellenir: tail = (tail - 1 + capacity) % capacity
+ // Eleman alınır: T item = array[tail]
+ // size azaltılır: size--
+ // Alınan eleman döndürülür: return item
+
+ // 5. get(int index)
+ // Kontrol: Geçerli bir indeks mi? (index < 0 || index >= size)
+ //    - Hayır: IndexOutOfBoundsException fırlatılır.
+ //    - Evet: Devam edilir.
+ // Gerçek indeks hesaplanır: actualIndex = (head + index) % capacity
+ // Eleman döndürülür: return array[actualIndex]
+
+ // 6. contains(T e)
+ // Döngü: 0'dan size'a kadar tüm elemanları dolaş.
+ // Eleman karşılaştırılır: array[(head + i) % capacity].equals(e)
+ //    - Evet: true döndür.
+ //    - Hayır: Döngüye devam et.
+ // Döngü bittiğinde false döndür.
+
+ // 7. resize()
+ // Yeni kapasite hesaplanır: newCapacity = capacity * 2
+ // Yeni bir dizi oluşturulur: T[] newArray = (T[]) new Object[newCapacity]
+ // Döngü: Mevcut elemanları yeni diziye taşı.
+ //    - newArray[i] = array[(head + i) % capacity]
+ // Dizi ve değişkenler güncellenir:
+ //    - array = newArray
+ //    - head = 0, tail = size
+ //    - capacity = newCapacity
+
+ // 8. clean()
+ // head, tail ve size sıfırlanır:
+ // head = 0, tail = 0, size = 0
