@@ -141,6 +141,4 @@ public class MyArrayList<T> implements MyList<T> {
         }
         return array[--size]; // Son elemanı döndür ve boyutu azalt
     }
-
-
 }

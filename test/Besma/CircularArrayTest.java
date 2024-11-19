@@ -47,7 +47,6 @@ public class CircularArrayTest {
         assertEquals(10, circularArray.get(0)); // Dizide kalan eleman 10 olmalı
     }
 
-
     @Test
     public void testResize(){
         MyCircularArray<Integer> circularArray = new MyCircularArray<>(2); // Kapasitesi 2 olan bir dizi oluşturulur.
