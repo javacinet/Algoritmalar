@@ -49,7 +49,7 @@ public class CircularArrayTest {
 
     @Test
     public void testResize(){
-        MyCircularArray<Integer> circularArray = new MyCircularArray<>(2);
+        MyCircularArray<Integer> circularArray = new MyCircularArray<>(2); // Kapasitesi 2 olan bir dizi oluşturulur.
         circularArray.addLast(10);
         circularArray.addLast(20);
         circularArray.addLast(30); // Kapasiteyi aşar, resize çalışır
