@@ -38,14 +38,15 @@ public class CircularArrayTest {
 
     @Test
     public void testRemoveLast(){
-        MyCircularArray<Integer> circularArray = new MyCircularArray<>(5);
-        circularArray.addLast(10);
-        circularArray.addLast(20);
-        int removed = circularArray.removeLast();
-        assertEquals(20,removed);
-        assertEquals(1,circularArray.size());
-        assertEquals(10,circularArray.get(0));
+        MyCircularArray<Integer> circularArray = new MyCircularArray<>(5); // Kapasite: 5
+        circularArray.addLast(10); // [10]
+        circularArray.addLast(20); // [10, 20]
+        int removed = circularArray.removeLast(); // Son eleman (20) çıkarılıyor
+        assertEquals(20, removed); // Çıkarılan eleman 20 olmalı
+        assertEquals(1, circularArray.size()); // Kalan eleman sayısı 1 olmalı
+        assertEquals(10, circularArray.get(0)); // Dizide kalan eleman 10 olmalı
     }
+
 
     @Test
     public void testResize(){
