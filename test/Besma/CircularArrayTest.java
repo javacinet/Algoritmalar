@@ -20,8 +20,8 @@ public class CircularArrayTest {
         circularArray.addFirst(20);
 
         assertEquals(2,circularArray.size());
-        assertEquals(10,circularArray.get(0));
-        assertEquals(20,circularArray.get(1));
+        assertEquals(20,circularArray.get(0));
+        assertEquals(10,circularArray.get(1));
     }
 
     @Test
