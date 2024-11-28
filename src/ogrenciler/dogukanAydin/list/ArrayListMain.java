@@ -14,12 +14,7 @@ public class ArrayListMain {
 
         list.addLast(12);
 
-        list.listeyiGoster();
-
-        list.shiftRight(4);
-
         System.out.println("a");
 
-        list.listeyiGoster();
     }
 }
