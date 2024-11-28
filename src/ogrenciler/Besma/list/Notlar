@@ -167,3 +167,23 @@ Bu durumda şunları söyleyebiliriz:
  // 8. clean()
  // head, tail ve size sıfırlanır:
  // head = 0, tail = 0, size = 0
+
+
+
+
+ ____-----------
+     // O(1)
+     @Override
+     public T removeFirst() {
+         if (isEmpty()) {
+             throw new EmptyListException();
+         }
+
+         T retVal = head.data; // İlk düğümün verisini sakla
+         head = head.next; // head'i bir sonraki düğüme taşı
+         return retVal; // Kaldırılan düğümün verisini döndür
+     }
+
+
+     ___________---
+     // To understand what is Linked list you can watch :: https://www.youtube.com/watch?v=N6dOwBde7-M

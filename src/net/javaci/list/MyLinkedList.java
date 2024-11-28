@@ -146,6 +146,5 @@ public class MyLinkedList<T> implements MyList<T> {
         public Node(T data) {
             this.data = data;
         }
-
     }
 }
