@@ -134,7 +134,7 @@ public class IntLinkedList implements IntList {
         return retVal;
     }
 
-    private static class Node {
+    public static class Node {
         int data;
         Node next;
 

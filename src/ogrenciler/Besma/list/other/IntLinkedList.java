@@ -1,5 +1,7 @@
 package ogrenciler.Besma.list.other;
 
+import net.javaci.list.exception.EmptyListException;
+
 public class IntLinkedList {
 
     private Node head; // Listenin başını temsil eder
@@ -82,6 +84,36 @@ public class IntLinkedList {
     // Tüm listeyi temizleme
     public void clean() {
         head = null; // Baş düğümü null yaparak listeyi temizle
+    }
+
+    public int removeLast() {
+        if (isEmpty()) {
+            throw new EmptyListException();
+        }
+
+        // last - 1 . next = null
+        Node pre = null;
+        Node current = head;
+
+        while (current != null) {
+            pre = current;
+            current = current.next;
+        }
+
+        int retVal = pre.data;
+        pre.next = null;
+
+        return retVal;
+    }
+    
+    public int removeFirst() {
+        if (isEmpty()) {
+            throw new EmptyListException();
+        }
+
+        int retVal = head.data;
+        head = head.next;
+        return retVal;
     }
 
     // İç içe sınıf: Düğüm yapısı
