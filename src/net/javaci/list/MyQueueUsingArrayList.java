@@ -10,7 +10,7 @@ public class MyQueueUsingArrayList<T> implements MyQueue<T> {
     }
 
     @Override
-    public T dequeu() {
+    public T dequeue() {
         return queue.removeFirst();
     }
 

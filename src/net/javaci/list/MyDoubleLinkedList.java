@@ -2,14 +2,12 @@ package net.javaci.list;
 
 import net.javaci.list.exception.EmptyListException;
 
-public class MyLinkedListWithTail<T> implements MyList<T> {
+public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<T> {
     private Node<T> head;
 
     private Node<T> tail;
 
-    private int size = 0;
-
-    // O()
+    // O(1)
     @Override
     public void addFirst(T e) {
         Node<T> newNode = new Node<>(e);
@@ -22,15 +20,16 @@ public class MyLinkedListWithTail<T> implements MyList<T> {
         }
 
         newNode.next = head;
+        head.prev = newNode;
         head = newNode;
-        size++;
 
+        size++;
     }
 
     // O(1)
     @Override
     public void addLast(T e) {
-        Node<T> newNode = new Node<T>(e);
+        Node<T> newNode = new Node<>(e);
 
         if (isEmpty()) {
             head = newNode;
@@ -39,15 +38,16 @@ public class MyLinkedListWithTail<T> implements MyList<T> {
             return;
         }
 
+        newNode.prev = tail;
         tail.next = newNode;
         tail = newNode;
+
         size++;
     }
 
     // O(1)
     @Override
     public T removeFirst() {
-
         if (isEmpty()) {
             throw new EmptyListException();
         }
@@ -55,46 +55,46 @@ public class MyLinkedListWithTail<T> implements MyList<T> {
         T retVal = head.data;
 
         if (size == 1) {
-            clean();
+            head = null;
+            tail = null;
+            size = 0;
             return retVal;
         }
 
+        // Node<T> oldHead = head;
         head = head.next;
+        head.prev = null;
+        // oldHead.next = null;
+
+        size--;
+
+        return retVal;
+    }
+
+    // O(1)
+    @Override
+    public T removeLast() {
+        if (isEmpty()) {
+            throw new EmptyListException();
+        }
+
+        T retVal = tail.data;
+
+        if (size == 1) {
+            head = null;
+            tail = null;
+            size = 0;
+            return retVal;
+        }
+
+        tail = tail.prev;
+        tail.next = null;
         size--;
 
         return retVal;
     }
 
     // O(n)
-    @Override
-    public T removeLast() {
-
-        if (isEmpty()) {
-            throw new EmptyListException();
-        }
-
-        if (size == 1) {
-            T retVal = head.data;
-            clean();
-            return retVal;
-        }
-
-        // last - 1 . next = null
-        Node<T> pre = head;
-        Node<T> current = head.next;
-
-        while (current.next != null) {
-            pre = current;
-            current = current.next;
-        }
-
-        T retVal = current.data;
-
-        pre.next = null;
-
-        return retVal;
-    }
-
     @Override
     public T get(int index) {
         if (index < 0 || size <= index) {
@@ -114,6 +114,7 @@ public class MyLinkedListWithTail<T> implements MyList<T> {
         return null;
     }
 
+    // O(n)
     @Override
     public boolean contains(T e) {
         if (isEmpty()) {
@@ -131,27 +132,33 @@ public class MyLinkedListWithTail<T> implements MyList<T> {
         return false;
     }
 
+    // O(n)
     @Override
     public void clean() {
+        if (size > 1) {
+
+            Node<T> pre = head;
+            Node<T> current = head.next;
+
+            while(current != null) {
+
+                pre.next = null;
+                pre.prev = null;
+
+                pre = current;
+                current = current.next;
+            }
+        }
+
         head = null;
         tail = null;
         size = 0;
     }
 
-    // O(1)
-    @Override
-    public int size() {
-        return size;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
     private static class Node<T> {
         T data;
         Node<T> next;
+        Node<T> prev;
 
         public Node(T data) {
             this.data = data;

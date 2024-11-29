@@ -1,6 +1,6 @@
 package net.javaci.list;
 
-public interface MyStack<T> extends Collection {
+public interface MyStack<T> extends MyCollection {
 
     T peek();
 

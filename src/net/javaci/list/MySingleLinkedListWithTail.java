@@ -2,70 +2,95 @@ package net.javaci.list;
 
 import net.javaci.list.exception.EmptyListException;
 
-public class MyLinkedList<T> implements MyList<T> {
-
+public class MySingleLinkedListWithTail<T> extends AbstractCollection implements MyList<T> {
     private Node<T> head;
+
+    private Node<T> tail;
 
     // O(1)
     @Override
     public void addFirst(T e) {
         Node<T> newNode = new Node<>(e);
 
-        newNode.next = head;
-        head = newNode;
-    }
-
-    // O(n)
-    @Override
-    public void addLast(T e) {
-        Node<T> newNode = new Node<>(e);
-
         if (isEmpty()) {
             head = newNode;
+            tail = newNode;
+            size = 1;
             return;
         }
 
-        Node<T> last = head;
-        while (last.next != null) {
-            last = last.next;
+        newNode.next = head;
+        head = newNode;
+        size++;
+
+    }
+
+    // O(1)
+    @Override
+    public void addLast(T e) {
+        Node<T> newNode = new Node<T>(e);
+
+        if (isEmpty()) {
+            head = newNode;
+            tail = newNode;
+            size = 1;
+            return;
         }
-        last.next = newNode;
+
+        tail.next = newNode;
+        tail = newNode;
+        size++;
     }
 
     // O(1)
     @Override
     public T removeFirst() {
+
         if (isEmpty()) {
             throw new EmptyListException();
         }
 
         T retVal = head.data;
+
+        if (size == 1) {
+            clean();
+            return retVal;
+        }
+
         head = head.next;
+        size--;
+
         return retVal;
     }
 
     // O(n)
     @Override
     public T removeLast() {
+
         if (isEmpty()) {
             throw new EmptyListException();
         }
 
+        if (size == 1) {
+            T retVal = head.data;
+            clean();
+            return retVal;
+        }
+
         // last - 1 . next = null
-        Node<T> pre = null;
-        Node<T> current = head;
+        Node<T> prev = head;
+        Node<T> current = head.next;
 
         while (current.next != null) {
-            pre = current;
+            prev = current;
             current = current.next;
         }
 
         T retVal = current.data;
-        if (pre == null) {
-            head = null;
-        } else {
-            pre.next = null;
-        }
+
+        prev.next = null;
+        tail = prev;
+        size--;
 
         return retVal;
     }
@@ -73,7 +98,7 @@ public class MyLinkedList<T> implements MyList<T> {
     // O(n)
     @Override
     public T get(int index) {
-        if (index < 0) {
+        if (index < 0 || size <= index) {
             throw new IndexOutOfBoundsException(index);
         }
 
@@ -87,8 +112,7 @@ public class MyLinkedList<T> implements MyList<T> {
             current = current.next;
         }
 
-
-        throw new IndexOutOfBoundsException(index);
+        return null;
     }
 
     // O(n)
@@ -109,39 +133,27 @@ public class MyLinkedList<T> implements MyList<T> {
         return false;
     }
 
-    // O(n)
     @Override
-    public int size() {
-        if (isEmpty()) {
-            return 0;
-        }
-
-        Node<T> current = head;
-        int size = 0;
-        while (current != null) {
-            size++;
-            current = current.next;
-        }
-
-        return size;
+    public void clean() {
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     // O(1)
     @Override
-    public boolean isEmpty() {
-        return head == null;
+    public int size() {
+        return size;
     }
 
-    // O(1) -  O(n)
     @Override
-    public void clean() {
-        head = null;
+    public boolean isEmpty() {
+        return size == 0;
     }
 
-
-    public static class Node<T> {
-        public T data;
-        public Node<T> next;
+    private static class Node<T> {
+        T data;
+        Node<T> next;
 
         public Node(T data) {
             this.data = data;

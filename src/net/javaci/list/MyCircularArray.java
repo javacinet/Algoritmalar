@@ -3,6 +3,7 @@ package net.javaci.list;
 import net.javaci.list.exception.EmptyListException;
 
 public class MyCircularArray<T> implements MyList<T> {
+
     private static final int INITIAL_CAPACITY = 16;
 
     private T[] array;

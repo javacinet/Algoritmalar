@@ -1,7 +1,7 @@
 package net.javaci.list;
 
 public class MyStackUsingArrayList<T> implements MyStack<T> {
-    private final MyArrayList<T> stack = new MyArrayList<>();
+    private final MyList<T> stack = new MyArrayList<>();
 
     @Override
     public T peek() {

@@ -1,6 +1,5 @@
 package ogrenciler.Besma.list;
 
-import static sun.util.locale.LocaleUtils.isEmpty;
 
 // O(1) Olmadığını Gösteren Durumlar:
 // Döngü veya tekrar varsa (örneğin, dizi veya liste üzerinde işlem yapılıyorsa).

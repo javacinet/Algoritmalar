@@ -2,7 +2,7 @@ package net.javaci.list;
 
 public class MyQueueUsingLinkedList<T> implements MyQueue<T> {
 
-    private final MyLinkedList<T> queue = new MyLinkedList<>();
+    private final MySingleLinkedList<T> queue = new MySingleLinkedList<>();
 
     @Override
     public void enqueue(T t) {
@@ -10,7 +10,7 @@ public class MyQueueUsingLinkedList<T> implements MyQueue<T> {
     }
 
     @Override
-    public T dequeu() {
+    public T dequeue() {
         return queue.removeFirst();
     }
 

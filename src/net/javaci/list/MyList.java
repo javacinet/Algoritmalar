@@ -1,6 +1,6 @@
 package net.javaci.list;
 
-public interface MyList<T> extends Collection {
+public interface MyList<T> extends MyCollection {
 
     void addFirst(T e);
 
@@ -16,4 +16,7 @@ public interface MyList<T> extends Collection {
 
     void clean();
 
+    default T getLast() {
+        return get(size() - 1);
+    }
 }

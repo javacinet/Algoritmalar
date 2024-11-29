@@ -1,7 +1,7 @@
 package net.javaci.list;
 
 public class MyStackUsingLinkedList<T> implements MyStack<T> {
-    private final MyLinkedList<T> stack = new MyLinkedList<>();
+    private final MyList<T> stack = new MyDoubleLinkedList<>();
 
     @Override
     public T peek() {

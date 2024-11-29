@@ -2,11 +2,10 @@ package net.javaci.list;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class MyLinkedListWithTailTest extends AbstractListTest {
-
+public class MyQueueUsingArrayListTest extends AbstractQueueTest {
     @BeforeEach
     public void setUp() {
-        list = new MySingleLinkedListWithTail<>();
+        queue = new MyQueueUsingArrayList<>();
     }
 
 }

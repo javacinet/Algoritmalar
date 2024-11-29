@@ -96,7 +96,7 @@ public class MyArrayList<T> implements MyList<T> {
     @Override
     public T removeLast() {
         if (isEmpty()) {
-            throw new RuntimeException("IntArrayList empty");
+            throw new EmptyListException();
         }
 
         return array[--size];

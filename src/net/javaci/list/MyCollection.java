@@ -1,6 +1,6 @@
 package net.javaci.list;
 
-public interface Collection {
+public interface MyCollection {
 
     int size();
 
