@@ -65,11 +65,6 @@ public class MyLinkedList<T> implements MyList<T> {
         return null;
     }
 
-    @Override
-    public void shiftRight() {
-    }
-
-
     // O(n)
     @Override
     public T get(int index) {
