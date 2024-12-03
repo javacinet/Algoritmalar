@@ -43,6 +43,13 @@ public class MyLinkedList<T> implements MyList<T> {
         if (isEmpty()) {
             throw new RuntimeException("The list is empty!");
         }
+        if (size == 1) {
+            T removedElement = head.data;
+            head = null;
+            tail = null;
+            size = 0;
+            return  removedElement;
+        }
         T removedElement = head.data;
         head = head.next;
         head.prev = null;
@@ -54,6 +61,13 @@ public class MyLinkedList<T> implements MyList<T> {
     public T removeLast() {
         if (isEmpty()) {
             throw new RuntimeException("The list is empty!");
+        }
+        if (size == 1) {
+            T removedElement = tail.data;
+            head = null;
+            tail = null;
+            size = 0;
+            return  removedElement;
         }
         T removedElement = tail.data;
         tail = tail.prev;
