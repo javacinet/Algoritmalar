@@ -1,6 +1,6 @@
 package ogrenciler.serhat.list;
 
-public interface Collection {
+public interface MyCollection {
     int size();
 
     boolean isEmpty();

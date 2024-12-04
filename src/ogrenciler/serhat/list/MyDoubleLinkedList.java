@@ -1,6 +1,6 @@
 package ogrenciler.serhat.list;
 
-public class MyLinkedList<T> implements MyList<T> {
+public class MyDoubleLinkedList<T> implements MyList<T> {
 
     private Node<T> head;
     private Node<T> tail;
