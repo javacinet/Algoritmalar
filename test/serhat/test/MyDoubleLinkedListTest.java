@@ -1,16 +1,16 @@
-package ogrenciler.serhat.test;
+package serhat.test;
 
-import ogrenciler.serhat.list.MyLinkedList;
+import ogrenciler.serhat.list.MyDoubleLinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MyLinkedListTest {
-    private MyLinkedList<Integer> list;
+public class MyDoubleLinkedListTest {
+    private MyDoubleLinkedList<Integer> list;
 
     @BeforeEach
     public void setUp() {
-        list = new MyLinkedList<>();
+        list = new MyDoubleLinkedList<>();
     }
 
     @Test

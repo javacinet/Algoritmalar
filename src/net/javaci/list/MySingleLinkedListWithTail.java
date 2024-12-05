@@ -2,14 +2,12 @@ package net.javaci.list;
 
 import net.javaci.list.exception.EmptyListException;
 
-public class MyLinkedListWithTail<T> implements MyList<T> {
+public class MySingleLinkedListWithTail<T> extends AbstractCollection implements MyList<T> {
     private Node<T> head;
 
     private Node<T> tail;
 
-    private int size = 0;
-
-    // O()
+    // O(1)
     @Override
     public void addFirst(T e) {
         Node<T> newNode = new Node<>(e);
@@ -80,21 +78,24 @@ public class MyLinkedListWithTail<T> implements MyList<T> {
         }
 
         // last - 1 . next = null
-        Node<T> pre = head;
+        Node<T> prev = head;
         Node<T> current = head.next;
 
         while (current.next != null) {
-            pre = current;
+            prev = current;
             current = current.next;
         }
 
         T retVal = current.data;
 
-        pre.next = null;
+        prev.next = null;
+        tail = prev;
+        size--;
 
         return retVal;
     }
 
+    // O(n)
     @Override
     public T get(int index) {
         if (index < 0 || size <= index) {
@@ -114,6 +115,7 @@ public class MyLinkedListWithTail<T> implements MyList<T> {
         return null;
     }
 
+    // O(n)
     @Override
     public boolean contains(T e) {
         if (isEmpty()) {

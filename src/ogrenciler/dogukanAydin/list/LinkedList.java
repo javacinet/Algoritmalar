@@ -1,5 +1,7 @@
 package ogrenciler.dogukanAydin.list;
 
+import ogrenciler.dogukanAydin.list.Exceptions.EmptyListException;
+
 public class LinkedList<T> implements MyList<T> {
     private Node<T> head;
 

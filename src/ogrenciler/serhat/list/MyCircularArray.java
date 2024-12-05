@@ -1,9 +1,8 @@
-package net.javaci.list;
+package ogrenciler.serhat.list;
 
 import net.javaci.list.exception.EmptyListException;
 
 public class MyCircularArray<T> implements MyList<T> {
-
     private static final int INITIAL_CAPACITY = 16;
 
     private T[] array;
@@ -46,7 +45,7 @@ public class MyCircularArray<T> implements MyList<T> {
         array[head] = e;
         size++;
         if (size == 1) {
-            tail = (head + size) % capacity;
+            tail = head;
         }
     }
 
@@ -84,6 +83,9 @@ public class MyCircularArray<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
+        if (isEmpty()) {
+            throw new IndexOutOfBoundsException(index);
+        }
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(index);
         }
@@ -94,7 +96,8 @@ public class MyCircularArray<T> implements MyList<T> {
     @Override
     public boolean contains(T e) {
         for (int i = 0; i < size; i++) {
-            if (array[(head + i) % capacity].equals(e)) {
+            T element = array[(head + i) % capacity];
+            if (e == null ? element == null : e.equals(element)) {
                 return true;
             }
         }
@@ -103,6 +106,9 @@ public class MyCircularArray<T> implements MyList<T> {
 
     @Override
     public void clean() {
+        for (int i = 0; i < capacity; i++) {
+            array[i] = null;
+        }
         head = 0;
         tail = 0;
         size = 0;

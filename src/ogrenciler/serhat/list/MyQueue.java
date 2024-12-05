@@ -1,4 +1,4 @@
-package net.javaci.list;
+package ogrenciler.serhat.list;
 
 public interface MyQueue<T> extends MyCollection {
 

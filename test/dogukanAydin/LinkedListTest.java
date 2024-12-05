@@ -1,6 +1,6 @@
 package dogukanAydin;
 
-import ogrenciler.dogukanAydin.list.EmptyListException;
+import ogrenciler.dogukanAydin.list.Exceptions.EmptyListException;
 import ogrenciler.dogukanAydin.list.LinkedList;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -121,7 +121,7 @@ class LinkedListTest {
 
 /*package dogukanAydin;
 
-import ogrenciler.dogukanAydin.list.EmptyListException;
+import ogrenciler.dogukanAydin.list.Exceptions.EmptyListException;
 import ogrenciler.dogukanAydin.list.LinkedList;
 
 public class LinkedListTest {

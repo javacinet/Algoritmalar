@@ -1,70 +1,14 @@
-package net.javaci.list;
+package dogukanAydin;
 
-import net.javaci.list.exception.EmptyListException;
+import ogrenciler.dogukanAydin.list.Arraylist;
+import ogrenciler.dogukanAydin.list.Exceptions.ArrayEmptyException;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public abstract class AbstractListTest extends AbstractCollectionTest {
-    protected MyList<Integer> list;
-
-    @Test
-    public void addFirstTest() {
-        list.addLast(10);
-        list.addLast(20);
-        list.addLast(30);
-
-        list.addFirst(5);
-
-        assertEquals(4, list.size());
-        assertEquals(5, list.get(0));
-        assertEquals(10, list.get(1));
-        assertEquals(20, list.get(2));
-        assertEquals(30, list.get(3));
-    }
-
-    @Test
-    public void testAddLast() {
-        list.addLast(10);
-        list.addLast(20);
-        list.addLast(30);
-
-        assertEquals(3, list.size(), "Dizi boyutu 3 olmalı.");
-        assertEquals(10, list.get(0), "Index 0'deki eleman 10 olmalı.");
-        assertEquals(20, list.get(1), "Index 1'deki eleman 20 olmalı.");
-        assertEquals(30, list.get(2), "Index 2'deki eleman 30 olmalı.");
-    }
-
-    @Test
-    public void testGetOutOfBounds() {
-        list.addLast(10);
-        assertThrows(IndexOutOfBoundsException.class, () -> {
-            list.get(1);
-        }, "Index 1'de bir eleman olmamalı.");
-    }
-
-    @Test
-    public void testContains() {
-        list.addLast(10);
-        list.addLast(20);
-        assertTrue(list.contains(20), "Dizi 20'yi içermeli.");
-        assertFalse(list.contains(30), "Dizi 30'u içermemeli.");
-    }
-
-    @Test
-    public void testContainsEmptyList() {
-        // list.addLast(5);
-        assertEquals(0, list.size(), "Liste bos degil");
-        assertFalse(list.contains(4), "dortun listede olmamasi lazim");
-    }
-
-    @Test
-    public void testRemoveFromEmptyList() {
-        assertThrows(EmptyListException.class, () -> list.removeFirst(), "EmptyListException atilmaliydi");
-    }
-
+class ArrayListTest {
     @Test
     void testAddFirstAndGet() {
+        Arraylist<Integer> list = new Arraylist<>();
         list.addFirst(10);
         list.addFirst(20);
         list.addFirst(30);
@@ -76,6 +20,7 @@ public abstract class AbstractListTest extends AbstractCollectionTest {
 
     @Test
     void testSize() {
+        Arraylist<Integer> list = new Arraylist<>();
         assertEquals(0, list.size(), "The list should initially be empty");
 
         list.addLast(10);
@@ -83,13 +28,9 @@ public abstract class AbstractListTest extends AbstractCollectionTest {
         assertEquals(2, list.size(), "The size should be 2 after adding two elements");
     }
 
-
-
-
-
-    //////////////////////////////// DOGUKAN ////////////////////////////////
     @Test
-    void testContains_D() {
+    void testContains() {
+        Arraylist<Integer> list = new Arraylist<>();
         list.addLast(10);
         list.addLast(20);
 
@@ -99,6 +40,7 @@ public abstract class AbstractListTest extends AbstractCollectionTest {
 
     @Test
     void testIsEmpty() {
+        Arraylist<Integer> list = new Arraylist<>();
         assertTrue(list.isEmpty(), "The list should initially be empty");
 
         list.addLast(10);
@@ -107,6 +49,7 @@ public abstract class AbstractListTest extends AbstractCollectionTest {
 
     @Test
     void testClean() {
+        Arraylist<Integer> list = new Arraylist<>();
         list.addLast(10);
         list.addLast(20);
         list.clean();
@@ -117,17 +60,18 @@ public abstract class AbstractListTest extends AbstractCollectionTest {
 
     @Test
     void testRemoveLast() {
+        Arraylist<Integer> list = new Arraylist<>();
         list.addLast(10);
         list.addLast(20);
         list.addLast(30);
 
         assertEquals(30, list.removeLast(), "The removed last element should be 30");
-        assertEquals(20, list.getLast(), "The last element should be 20");
         assertEquals(2, list.size(), "The list size should be 2 after removing the last element");
     }
 
     @Test
     void testRemoveFirst() {
+        Arraylist<Integer> list = new Arraylist<>();
         list.addLast(10);
         list.addLast(20);
         list.addLast(30);
@@ -138,6 +82,7 @@ public abstract class AbstractListTest extends AbstractCollectionTest {
 
     @Test
     void testGetWithInvalidIndex() {
+        Arraylist<Integer> list = new Arraylist<>();
         list.addLast(10);
         list.addLast(20);
 
@@ -147,18 +92,16 @@ public abstract class AbstractListTest extends AbstractCollectionTest {
 
     @Test
     void testRemoveLastOnEmptyList() {
+        Arraylist<Integer> list = new Arraylist<>();
         list.clean();
-        assertThrows(EmptyListException.class, list::removeLast, "Removing the last element from an empty list should throw EmptyListException");
+        assertThrows(ArrayEmptyException.class, list::removeLast, "Removing the last element from an empty list should throw EmptyListException");
     }
 
     @Test
     void testRemoveFirstOnEmptyList() {
+        Arraylist<Integer> list = new Arraylist<>();
         list.clean();
-        assertThrows(EmptyListException.class, list::removeFirst, "Removing the first element from an empty list should throw EmptyListException");
+        assertThrows(ArrayEmptyException.class, list::removeFirst, "Removing the first element from an empty list should throw EmptyListException");
     }
 
-    @Override
-    public MyCollection getCollection() {
-        return list;
-    }
 }

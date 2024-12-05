@@ -1,80 +1,117 @@
-package net.javaci.list;
+package ogrenciler.serhat.list;
 
 import net.javaci.list.exception.EmptyListException;
 
-public class MyLinkedList<T> implements MyList<T> {
-
+public class MySingleLinkedListWithTail<T> extends AbstractCollection implements MyList<T> {
     private Node<T> head;
 
-    // O(1)
+    private Node<T> tail;
+
     @Override
     public void addFirst(T e) {
-        Node<T> newNode = new Node<>(e);
+        if (e == null) {
+            throw new NullPointerException();
+        }
 
-        newNode.next = head;
-        head = newNode;
-    }
-
-    // O(n)
-    @Override
-    public void addLast(T e) {
         Node<T> newNode = new Node<>(e);
 
         if (isEmpty()) {
             head = newNode;
+            tail = newNode;
+            size = 1;
             return;
         }
 
-        Node<T> last = head;
-        while (last.next != null) {
-            last = last.next;
-        }
-        last.next = newNode;
+        newNode.next = head;
+        head = newNode;
+        size++;
     }
 
-    // O(1)
+    @Override
+    public void addLast(T e) {
+        if (e == null) {
+            throw new NullPointerException();
+        }
+
+        Node<T> newNode = new Node<>(e);
+
+        if (isEmpty()) {
+
+            head = newNode;
+            tail = newNode;
+            size = 1;
+            return;
+        }
+
+        if (tail == null) {
+            throw new IllegalStateException("tail is null but head is not null");
+        }
+
+        tail.next = newNode;
+        tail = newNode;
+        size++;
+    }
+
     @Override
     public T removeFirst() {
+
         if (isEmpty()) {
             throw new EmptyListException();
         }
 
         T retVal = head.data;
+
+        if (size == 1) {
+            clean();
+            return retVal;
+        }
+
         head = head.next;
+
+        size--;
+
         return retVal;
     }
 
-    // O(n)
     @Override
     public T removeLast() {
+
         if (isEmpty()) {
             throw new EmptyListException();
         }
 
+        if (size == 1) {
+            T retVal = head.data;
+            clean();
+            return retVal;
+        }
+
         // last - 1 . next = null
-        Node<T> pre = null;
-        Node<T> current = head;
+        Node<T> prev = head;
+        Node<T> current = head.next;
 
         while (current.next != null) {
-            pre = current;
+            prev = current;
             current = current.next;
         }
 
         T retVal = current.data;
-        if (pre == null) {
-            head = null;
-        } else {
-            pre.next = null;
-        }
+
+        prev.next = null;
+        tail = prev;
+        size--;
 
         return retVal;
     }
 
-    // O(n)
     @Override
     public T get(int index) {
-        if (index < 0) {
-            throw new IndexOutOfBoundsException(index);
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        if (isEmpty()) {
+            throw new EmptyListException();
         }
 
         Node<T> current = head;
@@ -87,15 +124,16 @@ public class MyLinkedList<T> implements MyList<T> {
             current = current.next;
         }
 
-
-        throw new IndexOutOfBoundsException(index);
+        return null;
     }
 
-    // O(n)
     @Override
     public boolean contains(T e) {
         if (isEmpty()) {
-            return false;
+            throw new EmptyListException();
+        }
+        if (e == null) {
+            throw new NullPointerException();
         }
 
         Node<T> current = head;
@@ -109,39 +147,27 @@ public class MyLinkedList<T> implements MyList<T> {
         return false;
     }
 
-    // O(n)
+    @Override
+    public void clean() {
+
+        head = null;
+        tail = null;
+        size = 0;
+    }
+
     @Override
     public int size() {
-        if (isEmpty()) {
-            return 0;
-        }
-
-        Node<T> current = head;
-        int size = 0;
-        while (current != null) {
-            size++;
-            current = current.next;
-        }
-
         return size;
     }
 
-    // O(1)
     @Override
     public boolean isEmpty() {
-        return head == null;
+        return size == 0;
     }
 
-    // O(1) -  O(n)
-    @Override
-    public void clean() {
-        head = null;
-    }
-
-
-    public static class Node<T> {
-        public T data;
-        public Node<T> next;
+    private static class Node<T> {
+        T data;
+        Node<T> next;
 
         public Node(T data) {
             this.data = data;

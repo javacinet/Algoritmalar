@@ -6,7 +6,7 @@ public class MyLinkedListTest extends AbstractListTest {
 
     @BeforeEach
     public void setUp() {
-        list = new MyLinkedList<>();
+        list = new MySingleLinkedList<>();
     }
 
 }

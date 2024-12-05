@@ -8,6 +8,10 @@ public class MyArrayList<T> implements MyList<T> {
 
     private int size = 0;
 
+    public MyArrayList() {
+        init();
+    }
+
     private void init() {
         array = (T[]) new Object[INITIAL_CAPACITY];
         size = 0;
