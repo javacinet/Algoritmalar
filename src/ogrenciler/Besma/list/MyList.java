@@ -13,5 +13,11 @@ public interface MyList <T>{
 
     boolean contains(T e);
 
+    // O(n)
+    int size();
+
     void clean();
+
+    // O(1)
+    boolean isEmpty();
 }
