@@ -2,7 +2,7 @@ package net.javaci.list;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class MyLinkedListWithTailTest extends AbstractListTest {
+public class MySingleLinkedListWithTailTest extends AbstractListTest {
 
     @BeforeEach
     public void setUp() {

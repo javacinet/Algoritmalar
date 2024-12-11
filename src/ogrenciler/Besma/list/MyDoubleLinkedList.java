@@ -5,12 +5,12 @@ import net.javaci.list.exception.EmptyListException;
 
 public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<T> {
 
-    private MyLinkedList.Node<T> head;
-    private MyLinkedList.Node<T> tail;
+    private MySingleLinkedList.Node<T> head;
+    private MySingleLinkedList.Node<T> tail;
 
     @Override
     public void addFirst(T e) {
-        MyLinkedList.Node<T> newNode = new MyLinkedList.Node<>(e);
+        MySingleLinkedList.Node<T> newNode = new MySingleLinkedList.Node<>(e);
         if (isEmpty()){
             head = newNode;
             tail = newNode;
@@ -26,7 +26,7 @@ public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<
 
     @Override
     public void addLast(T e) {
-        MyLinkedList.Node<T> newNode = new MyLinkedList.Node<>(e);
+        MySingleLinkedList.Node<T> newNode = new MySingleLinkedList.Node<>(e);
         if (isEmpty()){
             head = newNode;
             tail = newNode;
@@ -88,7 +88,7 @@ public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<
         if (index < 0 || size <= index ){
             throw new IndexOutOfBoundsException(index);
         }
-        MyLinkedList.Node<T> current = head;
+        MySingleLinkedList.Node<T> current = head;
         int i = 0;
         while (current != null){
             if (i == index){
@@ -107,7 +107,7 @@ public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<
             return false;
         }
 
-        MyLinkedList.Node<T> current = head;
+        MySingleLinkedList.Node<T> current = head;
         while (current != null){
             if(current.data.equals(e)){
                 return true;
@@ -120,8 +120,8 @@ public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<
     @Override
     public void clean() {
         if (size > 1){
-            MyLinkedList.Node<T> pre = head;
-            MyLinkedList.Node<T> current = head.next;
+            MySingleLinkedList.Node<T> pre = head;
+            MySingleLinkedList.Node<T> current = head.next;
             while (current != null){
                 pre.next = null;
                 pre.prev = null;
@@ -137,8 +137,8 @@ public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<
 
     private static class Node<T>{
         T data;
-        MyLinkedList.Node<T> next;
-        MyLinkedList.Node<T> prev;
+        MySingleLinkedList.Node<T> next;
+        MySingleLinkedList.Node<T> prev;
 
         public Node(T data){
             this.data = data;

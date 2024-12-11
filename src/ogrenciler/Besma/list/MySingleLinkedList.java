@@ -3,7 +3,7 @@ package ogrenciler.Besma.list;
 import net.javaci.list.exception.EmptyListException;
 
 // To understand what is Linked list you can watch :: https://www.youtube.com/watch?v=N6dOwBde7-M
-public class MyLinkedList<T> implements MyList<T> {
+public class MySingleLinkedList<T> implements MyList<T> {
     private Node<T> head;
 
     // O(1)

@@ -2,7 +2,7 @@ package ogrenciler.Besma.list;
 
 import net.javaci.list.exception.EmptyListException;
 
-public abstract class MyLinkedListWithTail<T> implements MyList<T> {
+public abstract class MySingleLinkedListWithTail<T> implements MyList<T> {
     private Node<T> head;
 
     private Node<T> tail;
