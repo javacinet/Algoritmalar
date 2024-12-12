@@ -135,6 +135,10 @@ public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<
         size = 0;
     }
 
+    public void add(T i) {
+
+    }
+
     private static class Node<T>{
         T data;
         MySingleLinkedList.Node<T> next;

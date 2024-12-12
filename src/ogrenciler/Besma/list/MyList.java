@@ -20,4 +20,5 @@ public interface MyList <T>{
 
     // O(1)
     boolean isEmpty();
+
 }
