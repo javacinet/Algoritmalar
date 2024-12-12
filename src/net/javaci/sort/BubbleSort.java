@@ -1,10 +1,12 @@
 package net.javaci.sort;
 
+import java.util.Arrays;
+
 public class BubbleSort {
     /**
      * Bubble sort method
      */
-    public static void bubbleSort(int[] list) {
+    public static void sort(int[] list) {
         boolean needNextPass = true;
 
         for (int k = 1; k < list.length && needNextPass; k++) {
@@ -27,9 +29,9 @@ public class BubbleSort {
      * A test method
      */
     public static void main(String[] args) {
-        int[] list = {2, 3, 2, 5, 6, 1, -2, 3, 14, 12};
-        bubbleSort(list);
-        for (int i = 0; i < list.length; i++)
-            System.out.print(list[i] + " ");
+        int[] list = {-2, 1, 2, 2, 3, 3, 5, 6, 12, 14};
+        sort(list);
+        System.out.print(Arrays.toString(list));
     }
 }
+// [-2, 1, 2, 2, 3, 3, 5, 6, 12, 14]

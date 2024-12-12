@@ -4,9 +4,8 @@ public class SelectionSort {
 
     /** The method for sorting the numbers */
     // O(n^2)
-    public static void selectionSort(int[] list) {
+    public static void sort(int[] list) {
         for (int i = 0; i < list.length - 1; i++) {
-            // Find the minimum in the list[i..list.length-1]
             int currentMin = list[i];
             int currentMinIndex = i;
 
@@ -18,10 +17,8 @@ public class SelectionSort {
             }
 
             // Swap list[i] with list[currentMinIndex] if necessary;
-            if (currentMinIndex != i) {
-                list[currentMinIndex] = list[i];
-                list[i] = currentMin;
-            }
+            list[currentMinIndex] = list[i];
+            list[i] = currentMin;
         }
     }
 }
