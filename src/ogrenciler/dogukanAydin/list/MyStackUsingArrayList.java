@@ -9,7 +9,7 @@ public class MyStackUsingArrayList<T> implements MyStack<T> {
 
     @Override
     public T peek() {
-        return stack.get(1);
+        return stack.get(size() - 1);
     }
 
     @Override

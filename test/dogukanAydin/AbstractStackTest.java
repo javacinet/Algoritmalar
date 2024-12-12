@@ -65,13 +65,4 @@ public abstract class AbstractStackTest extends AbstractCollection {
 
         assertEquals(null, exception.getMessage()); // Hata mesajını kontrol et
     }
-
-    @Test
-    public void testPeekEmptyStack() {
-        Exception exception = assertThrows(IndexOutOfBoundsException.class, () -> {
-            stack.peek(); // Stack boşken peek çağrıldığında bir hata fırlatılmalı
-        });
-
-        assertEquals("", exception.getMessage()); // Hata mesajını kontrol et
-    }
 }

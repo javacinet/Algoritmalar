@@ -72,7 +72,7 @@ public class MyArrayList<T> implements MyList<T> {
     @Override
     public T get(int index) {
         if (index >= size || index < 0) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index out of range: " + index);
         }
         return array[index];
     }
