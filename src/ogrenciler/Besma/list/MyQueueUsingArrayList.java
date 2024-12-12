@@ -23,4 +23,24 @@ public class MyQueueUsingArrayList<T> implements MyQueue<T> {
     public T dequeu() {
         return queue.removeFirst();
     }
+
+    @Override
+    public void enqueue(Integer integer) {
+
+    }
+
+    @Override
+    public Integer dequeue() {
+        return 0;
+    }
+
+    @Override
+    public Integer peek() {
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+
+    }
 }

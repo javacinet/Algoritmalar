@@ -28,4 +28,9 @@ public class MyStackUsingArrayList<T> implements MyStack<T> {
     public void push(T t) {
         stack.addLast(t);
     }
+
+    @Override
+    public void clear() {
+
+    }
 }

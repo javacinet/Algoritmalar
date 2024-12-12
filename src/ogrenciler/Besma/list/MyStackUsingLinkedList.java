@@ -28,4 +28,9 @@ public class MyStackUsingLinkedList<T> implements MyStack<Object> {
     public void push(Object t) {
         stack.addFirst(t);
     }
+
+    @Override
+    public void clear() {
+
+    }
 }

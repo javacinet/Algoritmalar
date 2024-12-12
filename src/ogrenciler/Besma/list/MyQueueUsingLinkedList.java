@@ -23,4 +23,24 @@ public class MyQueueUsingLinkedList<T> implements MyQueue<Void> {
         return null;
     }
 
+    @Override
+    public void enqueue(Integer integer) {
+
+    }
+
+    @Override
+    public Integer dequeue() {
+        return 0;
+    }
+
+    @Override
+    public Integer peek() {
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
 }

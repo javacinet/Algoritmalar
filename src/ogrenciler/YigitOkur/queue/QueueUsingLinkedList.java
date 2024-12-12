@@ -5,7 +5,6 @@ package ogrenciler.YigitOkur.queue;
  * github.com/TurkishKEBAB
  */
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -83,17 +82,17 @@ public class QueueUsingLinkedList<T> implements Queue<T> {
    }
 
    @Override
-   public @NotNull Iterator<T> iterator() {
+   public Iterator<T> iterator() {
       return queue.iterator();
    }
 
    @Override
-   public @NotNull Object @NotNull [] toArray() {
+   public Object [] toArray() {
       return queue.toArray();
    }
 
    @Override
-   public @NotNull <T1> T1 @NotNull [] toArray(@NotNull T1 @NotNull [] a) {
+   public <T1> T1 [] toArray(T1 [] a) {
       return queue.toArray(a);
    }
 
@@ -103,22 +102,22 @@ public class QueueUsingLinkedList<T> implements Queue<T> {
    }
 
    @Override
-   public boolean containsAll(@NotNull Collection<?> c) {
+   public boolean containsAll(Collection<?> c) {
       return queue.containsAll(c);
    }
 
    @Override
-   public boolean addAll(@NotNull Collection<? extends T> c) {
+   public boolean addAll(Collection<? extends T> c) {
       return queue.addAll(c);
    }
 
    @Override
-   public boolean removeAll(@NotNull Collection<?> c) {
+   public boolean removeAll(Collection<?> c) {
       return queue.removeAll(c);
    }
 
    @Override
-   public boolean retainAll(@NotNull Collection<?> c) {
+   public boolean retainAll(Collection<?> c) {
       return queue.retainAll(c);
    }
 
