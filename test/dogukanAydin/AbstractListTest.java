@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public abstract class AbstractListTest extends ogrenciler.dogukanAydin.Test.AbstractCollectionTest {
+public abstract class AbstractListTest extends AbstractCollectionTest {
 
     protected MyList<Integer> list;
 

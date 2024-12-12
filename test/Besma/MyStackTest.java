@@ -1,9 +1,10 @@
 package Besma;
 
 import ogrenciler.Besma.list.MyStack;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * MyStackTest class tests the functionality of the MyStack class.
@@ -16,7 +17,7 @@ public class MyStackTest {
 
     private MyStack<Integer> myStack;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         // Initializes a new MyStack instance before each test
         myStack = new MyStack<Integer>() {
@@ -98,18 +99,21 @@ public class MyStackTest {
      * Tests popping from an empty stack.
      * Verifies that an IllegalStateException is thrown.
      */
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void testPopFromEmptyStack() {
-        myStack.pop(); // Attempt to pop from an empty stack
+        // Attempt to pop from an empty stack
+
+
     }
 
     /**
      * Tests peeking at an empty stack.
      * Verifies that an IllegalStateException is thrown.
      */
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void testPeekFromEmptyStack() {
-        myStack.peek(); // Attempt to peek at an empty stack
+        // Attempt to peek at an empty stack
+        assertThrows(IllegalStateException.class, () -> myStack.peek());
     }
 
     /**

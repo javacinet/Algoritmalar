@@ -5,7 +5,7 @@ import ogrenciler.dogukanAydin.list.AbstractCollection;
 import ogrenciler.dogukanAydin.list.Interfaces.MyStack;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public abstract class AbstractStackTest extends AbstractCollection {
     protected MyStack<Integer> stack;

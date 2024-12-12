@@ -1,9 +1,11 @@
 package Besma;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.util.LinkedList;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * QueueJUnitTest class demonstrates how to test queue operations using JUnit.
@@ -12,7 +14,7 @@ public class MyQueueTest {
 
     private LinkedList<Integer> myQueue;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         // Her testten önce yeni bir kuyruk oluşturulur
         myQueue = new LinkedList<>();

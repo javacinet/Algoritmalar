@@ -5,8 +5,7 @@ import ogrenciler.dogukanAydin.list.AbstractCollection;
 import ogrenciler.dogukanAydin.list.Interfaces.MyQueue;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public abstract class AbstractQueueTest extends AbstractCollection {
     protected MyQueue<Integer> queue;
