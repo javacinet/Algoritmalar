@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list.other;
+package ogrenciler.besma.list.other;
 
 public interface IntList {
         void addLast(int e);

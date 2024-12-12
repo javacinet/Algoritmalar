@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list;
+package ogrenciler.besma.list;
 public interface MyQueue<T> extends Collection {
     void enqueue(Object t);
 

@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list.other;
+package ogrenciler.besma.list.other;
 
 public class IntArrayList implements IntList{
     private final int INITIAL_CAPACITY = 16 ;

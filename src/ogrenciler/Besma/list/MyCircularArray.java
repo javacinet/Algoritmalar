@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list;
+package ogrenciler.besma.list;
 // Circular Array (Dairesel Dizi), boyutu sabit olan ve sonuncu elemandan sonra başa dönen bir veri yapısıdır.
 // Yani, bir tür "halka" gibi davranır.
 // FIFO (First-In-First-Out) kuyruğu veya döngüsel veri işlemlerinde sıklıkla kullanılır.

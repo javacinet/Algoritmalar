@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list;
+package ogrenciler.besma.list;
 
 public class MyStackUsingArrayList<T> implements MyStack<T> {
 

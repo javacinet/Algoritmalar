@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list;
+package ogrenciler.besma.list;
 
 import net.javaci.list.exception.EmptyListException;
 

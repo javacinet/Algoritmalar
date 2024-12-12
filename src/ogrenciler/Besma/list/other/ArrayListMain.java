@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list.other;
+package ogrenciler.besma.list.other;
 
 public class ArrayListMain {
     public static void main(String[] args){

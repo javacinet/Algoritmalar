@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list;
+package ogrenciler.besma.list;
 
 
 // O(1) Olmadığını Gösteren Durumlar:

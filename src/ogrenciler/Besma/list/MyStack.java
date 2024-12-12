@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list;
+package ogrenciler.besma.list;
 public interface MyStack<T> extends Collection {
     T peek();
     T pop();

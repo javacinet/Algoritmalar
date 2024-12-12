@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list;
+package ogrenciler.besma.list;
 
 public interface MyList <T>{
     void addFirst(T e);

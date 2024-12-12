@@ -1,4 +1,4 @@
-package ogrenciler.Besma.list;
+package ogrenciler.besma.list;
 
 public class MyQueueUsingLinkedList<T> implements MyQueue<Void> {
     private final MyArrayList<Void> queue = new MyArrayList<>();
