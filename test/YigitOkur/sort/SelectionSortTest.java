@@ -1,167 +1,167 @@
 package YigitOkur.sort;
 
 /*
- * @author of this code Yigit Okur (23Soft1040)
+ * Author: Yigit Okur (23Soft1040)
  * github.com/TurkishKEBAB
  */
 
 import ogrenciler.YigitOkur.sort.SelectionSort;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SelectionSortTest {
 
    @Test
-   void saçmaTestler01() {
-      int[] Arayayım = {};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{}, Arayayım);
+   void testEmptyArray() {
+      int[] array = {};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{}, array);
    }
 
    @Test
-   void saçmaTestler02() {
-      int[] Arayayım = {5};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{5}, Arayayım);
+   void testSingleElementArray() {
+      int[] array = {5};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{5}, array);
    }
 
    @Test
-   void saçmaTestler3() {
-      int[] Arayayım = {1, 2, 3, 4, 5};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 2, 3, 4, 5}, Arayayım);
+   void testSortedArray() {
+      int[] array = {1, 2, 3, 4, 5};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 2, 3, 4, 5}, array);
    }
 
    @Test
-   void saçmaTestler4() {
-      int[] Arayayım = {5, 4, 3, 2, 1};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 2, 3, 4, 5}, Arayayım);
+   void testReverseSortedArray() {
+      int[] array = {5, 4, 3, 2, 1};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 2, 3, 4, 5}, array);
    }
 
    @Test
-   void saçmaTestler5() {
-      int[] Arayayım = {2, 2, 2, 2, 2};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{2, 2, 2, 2, 2}, Arayayım);
+   void testAllElementsSame() {
+      int[] array = {2, 2, 2, 2, 2};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{2, 2, 2, 2, 2}, array);
    }
 
    @Test
-   void saçmaTestler6() {
-      int[] Arayayım = {-5, -10, 0, 5, 3};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{-10, -5, 0, 3, 5}, Arayayım);
+   void testNegativeNumbers() {
+      int[] array = {-5, -10, 0, 5, 3};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{-10, -5, 0, 3, 5}, array);
    }
 
    @Test
-   void saçmaTestler7() {
-      int[] Arayayım = {0, 0, 0};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{0, 0, 0}, Arayayım);
+   void testAllZeros() {
+      int[] array = {0, 0, 0};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{0, 0, 0}, array);
    }
 
    @Test
-   void saçmaTestler8() {
-      int[] Arayayım = {1, 5, 3, 1, 2};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 1, 2, 3, 5}, Arayayım);
+   void testMixedNumbers() {
+      int[] array = {1, 5, 3, 1, 2};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 1, 2, 3, 5}, array);
    }
 
    @Test
-   void saçmaTestler9() {
-      int[] Arayayım = {99999, 1000000, 99998};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{99998, 99999, 1000000}, Arayayım);
+   void testLargeNumbers() {
+      int[] array = {99999, 1000000, 99998};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{99998, 99999, 1000000}, array);
    }
 
    @Test
-   void saçmaTestler10() {
-      int[] Arayayım = {1, 100, 2, 99, 3, 98};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 2, 3, 98, 99, 100}, Arayayım);
+   void testAlternatingHighLow() {
+      int[] array = {1, 100, 2, 99, 3, 98};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 2, 3, 98, 99, 100}, array);
    }
 
    @Test
-   void saçmaTestler11() {
-      int[] Arayayım = new int[100];
+   void testLargeArray() {
+      int[] array = new int[100];
       for (int i = 0; i < 100; i++) {
-         Arayayım[i] = 100 - i;
+         array[i] = 100 - i;
       }
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
+      SelectionSort.selectionSort(array);
       for (int i = 0; i < 100; i++) {
-         assertEquals(i + 1, Arayayım[i]);
+         assertEquals(i + 1, array[i]);
       }
    }
 
    @Test
-   void saçmaTestler12() {
-      int[] Arayayım = {100, 1};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 100}, Arayayım);
+   void testTwoElements() {
+      int[] array = {100, 1};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 100}, array);
    }
 
    @Test
-   void saçmaTestler13() {
-      int[] Arayayım = {5, 2, 9, 7, 1};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 2, 5, 7, 9}, Arayayım);
+   void testUnsortedArray() {
+      int[] array = {5, 2, 9, 7, 1};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 2, 5, 7, 9}, array);
    }
 
    @Test
-   void saçmaTestler14() {
-      int[] Arayayım = {-5, -2, -9, -1, -3};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{-9, -5, -3, -2, -1}, Arayayım);
+   void testNegativeUnsortedArray() {
+      int[] array = {-5, -2, -9, -1, -3};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{-9, -5, -3, -2, -1}, array);
    }
 
    @Test
-   void saçmaTestler15() {
-      int[] Arayayım = {Integer.MAX_VALUE, Integer.MIN_VALUE, 0};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{Integer.MIN_VALUE, 0, Integer.MAX_VALUE}, Arayayım);
+   void testMinMaxValues() {
+      int[] array = {Integer.MAX_VALUE, Integer.MIN_VALUE, 0};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{Integer.MIN_VALUE, 0, Integer.MAX_VALUE}, array);
    }
 
    @Test
-   void saçmaTestler16() {
-      int[] Arayayım = {1, 2, 3, 4, 100};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 2, 3, 4, 100}, Arayayım);
+   void testSortedExceptLast() {
+      int[] array = {1, 2, 3, 4, 100};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 2, 3, 4, 100}, array);
    }
 
    @Test
-   void saçmaTestler17() {
-      int[] Arayayım = {1, 1, 1, 1, 1000};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 1, 1, 1, 1000}, Arayayım);
+   void testSortedExceptFirst() {
+      int[] array = {1, 1, 1, 1, 1000};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 1, 1, 1, 1000}, array);
    }
 
    @Test
-   void saçmaTestler18() {
-      int[] Arayayım = {100, 0, 50};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{0, 50, 100}, Arayayım);
+   void testThreeElements() {
+      int[] array = {100, 0, 50};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{0, 50, 100}, array);
    }
 
    @Test
-   void saçmaTestler19() {
-      int[] Arayayım = {2, 3, 2, 1, 4};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 2, 2, 3, 4}, Arayayım);
+   void testDuplicateElements() {
+      int[] array = {2, 3, 2, 1, 4};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 2, 2, 3, 4}, array);
    }
 
    @Test
-   void saçmaTestler20() {
-      int[] Arayayım = {100, 200, 300, 400, 1};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{1, 100, 200, 300, 400}, Arayayım);
+   void testHighLowArray() {
+      int[] array = {100, 200, 300, 400, 1};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{1, 100, 200, 300, 400}, array);
    }
 
    @Test
-   void saçmaTestler21() {
-      int[] Arayayım = {0, 0, 0, 1};
-      SelectionSort.SortTarafındanSeçiliyoruzMetodu(Arayayım);
-      assertArrayEquals(new int[]{0, 0, 0, 1}, Arayayım);
+   void testZerosAndOne() {
+      int[] array = {0, 0, 0, 1};
+      SelectionSort.selectionSort(array);
+      assertArrayEquals(new int[]{0, 0, 0, 1}, array);
    }
-
 }
