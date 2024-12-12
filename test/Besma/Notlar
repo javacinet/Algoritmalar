@@ -100,3 +100,23 @@ ve genellikle optimizasyon gerektirir. Şimdi bu detayları listeleyelim:
 - **Yüksek karmaşıklıklar (\(O(n^2), O(2^n), O(n!)\))**: Genellikle brute force veya optimize edilmemiş algoritmalar.
 
 Bu genel özetle, karmaşıklığı analiz etmek ve belirli sınıflara ayırmak kolaylaşır. Eğer bir algoritma \(O(n!)\) gibi bir karmaşıklığa sahipse, bu genelde **optimize edilmesi gerektiği** anlamına gelir.
+--------------------------
+MyStack Sınıfının Yapısı
+--------------------------
+Bir yığın (stack), "LIFO" (Last In, First Out) prensibine göre çalışan bir veri yapısıdır. Yani en son eklenen eleman ilk çıkarılır. MyStack.java sınıfının temel metotlarını tahmin ederek açıklayalım:
+
+Temel Metotlar:
+push(E element):
+Yığına bir eleman ekler.
+pop():
+Yığının en üstündeki elemanı çıkarır ve döner.
+Eğer yığın boşsa bir istisna atar.
+peek():
+Yığının en üstündeki elemanı döner, ancak onu çıkarmaz.
+Eğer yığın boşsa bir istisna atar.
+isEmpty():
+Yığının boş olup olmadığını kontrol eder.
+clear():
+Yığındaki tüm elemanları temizler.
+size():
+Yığındaki eleman sayısını döner.
