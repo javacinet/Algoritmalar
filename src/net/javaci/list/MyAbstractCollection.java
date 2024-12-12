@@ -1,6 +1,6 @@
 package net.javaci.list;
 
-public class AbstractCollection implements MyCollection {
+public class MyAbstractCollection implements MyCollection {
     protected int size = 0;
 
     // O(1)

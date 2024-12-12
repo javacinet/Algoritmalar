@@ -1,9 +1,9 @@
 package ogrenciler.Besma.list;
 
-import net.javaci.list.AbstractCollection;
+import net.javaci.list.MyAbstractCollection;
 import net.javaci.list.exception.EmptyListException;
 
-public class MyDoubleLinkedList<T> extends AbstractCollection implements MyList<T> {
+public class MyDoubleLinkedList<T> extends MyAbstractCollection implements MyList<T> {
 
     private MySingleLinkedList.Node<T> head;
     private MySingleLinkedList.Node<T> tail;

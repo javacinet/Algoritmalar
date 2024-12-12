@@ -2,7 +2,7 @@ package net.javaci.list;
 
 import net.javaci.list.exception.EmptyListException;
 
-public class MySingleLinkedListWithTail<T> extends AbstractCollection implements MyList<T> {
+public class MySingleLinkedListWithTail<T> extends MyAbstractCollection implements MyList<T> {
     private Node<T> head;
 
     private Node<T> tail;
