@@ -1,55 +1,32 @@
 package ogrenciler.YigitOkur.sort;
 
 /*
- * @author of this code Yigit Okur (23Soft1040)
+ * Author: Yigit Okur (23Soft1040)
  * github.com/TurkishKEBAB
  */
 
 public class SelectionSort {
-
-   public static void SortTarafındanSeçiliyoruzMetodu(int[] array) {
+   public static void selectionSort(int[] array) {
       int n = array.length;
-
-      if ((array == null) || (n <= 0)) {
-         System.out.println("Sen gerçek deelsin");
-//         throw new ArrayIndexOutOfBoundsException("Arayasın yok");
-      }
       for (int i = 0; i < n - 1; i++) {
-         int minIndex = i;
+         int minIdx = i;
          for (int j = i + 1; j < n; j++) {
-            if (array[j] < array[minIndex]) {
-               minIndex = j;
+            if (array[j] < array[minIdx]) {
+               minIdx = j;
             }
          }
-
-         if (minIndex != i) {
-            int temp = array[minIndex];
-            array[minIndex] = array[i];
-            array[i] = temp;
-         }
+         int temp = array[minIdx];
+         array[minIdx] = array[i];
+         array[i] = temp;
       }
-   }
-
-   public static void printArray(int [] array) {
-      for (int i : array) {
-         System.out.print(i + " ");
-      }
-      System.out.println();
    }
 
    public static void main(String[] args) {
-      int[] arayayım = {64, 25, 12, 22, 11};
-
-      System.out.println("14 Mayıs Şort seçmiminden önce arayayım:");
-      printArray(arayayım);
-      SortTarafındanSeçiliyoruzMetodu(arayayım);
-      System.out.println("28 Mayıs Şort seçimleri sonrası arayayım:");
-      printArray(arayayım);
-
-//      int array[] = new int[0];
-
-//      selectionSort(array);
+      int[] array = {64, 25, 12, 22, 11};
+      selectionSort(array);
+      System.out.println("Sorted array: ");
+      for (int j : array) {
+         System.out.print(j + " ");
+      }
    }
 }
-
-
